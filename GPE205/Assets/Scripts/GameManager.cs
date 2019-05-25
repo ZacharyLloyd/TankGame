@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     //Used to keep track of the player
     public List<TankController> players;
+    //Used to instanciate the bullet
     public int bulletInstance;
 
     private void Awake()

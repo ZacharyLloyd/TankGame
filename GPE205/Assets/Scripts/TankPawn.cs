@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof (TankData))]
 public class TankPawn : MonoBehaviour
 {
+    //Setting references to use their properties and methods
     public TankData data;
     private CharacterController characterController;
 

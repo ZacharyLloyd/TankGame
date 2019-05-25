@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class TankController : MonoBehaviour
 {
-    public enum ControlScheme {WASD, ArrowKeys };
+    //Setting references to other scripts to grab their properties and methods
     public Shoot shoot;
     public TankData pawn;
+    //Creating an enum for the ControlScheme allong with giving it a property
+    public enum ControlScheme {WASD, ArrowKeys };
     public ControlScheme controlScheme;
 
     // Start is called before the first frame update

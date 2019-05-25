@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    //Setting properties that will be used in this class
     public GameObject target; //Targeted GameObject to change its location through its GameObject component
     public float smoothDuration; //Setting the duration of the camera smoothing out/in towards the player
     public Vector3 offset; //Setting offset of camera
