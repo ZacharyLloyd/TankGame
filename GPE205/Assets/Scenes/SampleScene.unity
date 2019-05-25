@@ -626,7 +626,7 @@ MonoBehaviour:
   turretRotation: {fileID: 1059178732}
   moveSpeed: 200
   reverseMoveSpeed: 200
-  shotsPerSecond: 3
+  shotsPerSecond: 2
   rotateSpeed: 75
   turretRotateSpeed: 75
 --- !u!143 &867915699

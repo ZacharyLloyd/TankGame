@@ -46,9 +46,8 @@ public class BulletMover : MonoBehaviour
     {
         GameManager.instance.bulletInstance--;
     }
-    private void OnCollisionStay(Collision rock)
+    private void OnTriggerEnter (Collider rock)
     {
-        Debug.Log(rock.gameObject);
         if (rock.gameObject.tag == "Rock")
             Destroy(this.gameObject);
     }
