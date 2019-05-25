@@ -5,7 +5,7 @@ using UnityEngine;
 public class TankController : MonoBehaviour
 {
     public enum ControlScheme {WASD, ArrowKeys };
-
+    public Shoot shoot;
     public TankData pawn;
     public ControlScheme controlScheme;
 
@@ -44,6 +44,24 @@ public class TankController : MonoBehaviour
             if (Input.GetKey(KeyCode.D))
             {
                 pawn.mover.Rotate(pawn.rotateSpeed * Time.deltaTime);
+            }
+            //If the Q key is down, multiply by the negative turretRotateSpeed
+            //This allows the turret itself to rotate towards the left
+            if (Input.GetKey(KeyCode.Q))
+            {
+                pawn.turretRotation.Rotate(-pawn.turretRotateSpeed * Time.deltaTime);
+            }
+            //If the E key is down, multiply by the positive turretRotateSpeed
+            //This allows the turret itself to rotate towards the right
+            if (Input.GetKey(KeyCode.E))
+            {
+                pawn.turretRotation.Rotate(pawn.turretRotateSpeed * Time.deltaTime);
+            }
+            //If the space key is down, 
+            if (Input.GetKey(KeyCode.Space))
+            {
+                if (GameManager.instance.bulletInstance != 1)
+                    shoot.TankShoot(shoot.bulletPrefab);
             }
         }
         //If the ArrowKeys control scheme is selected

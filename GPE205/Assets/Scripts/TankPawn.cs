@@ -24,7 +24,7 @@ public class TankPawn : MonoBehaviour
     {
         /*Calculating the player's direction based on the player's rotation
         this way (0,0,1 becomes the player's foward)*/
-        Vector3 directionToMove = data.tf.TransformDirection(worldDirectionToMove);
+        Vector3 directionToMove = data.bodytf.TransformDirection(worldDirectionToMove);
         //This is where the player would actually move
         characterController.SimpleMove(directionToMove * data.moveSpeed);
     }
@@ -33,7 +33,7 @@ public class TankPawn : MonoBehaviour
         /*This is where the rotation is calculated by taking the
         player's direction and multiplying it by rotationSpeed and time
         to add a force*/
-        data.tf.Rotate(new Vector3(0, direction * data.rotateSpeed * Time.deltaTime, 0));
+        data.bodytf.Rotate(new Vector3(0, direction * data.rotateSpeed * Time.deltaTime, 0));
     }
 
 }
