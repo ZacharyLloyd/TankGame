@@ -5,7 +5,6 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     //Setting a reference to access properties and methods from other scripts
-    public Timer timer;
     public Transform pointOfFire;
     public GameObject bulletPrefab;
 
