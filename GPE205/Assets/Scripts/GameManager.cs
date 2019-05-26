@@ -10,6 +10,12 @@ public class GameManager : MonoBehaviour
     public List<TankController> players;
     //Used to instanciate the bullet
     public int bulletInstance;
+    public TankData data;
+    public float damage;
+    public float currentPlayerHealth;
+    public float maxPlayerHealth;
+    public float currentEnemyHealth;
+    public float maxEnemyHealth;
 
     private void Awake()
     {
@@ -22,6 +28,30 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+    }
+    private void Update()
+    {
+        Debug.Log(currentPlayerHealth);
+        Debug.Log(currentEnemyHealth);
+    }
+    private void Start()
+    {
+        currentPlayerHealth = maxPlayerHealth;
+        currentEnemyHealth = maxEnemyHealth;
+    }
+    public void DecreaseHealth(float damage)
+    {
+        if (currentPlayerHealth > 0)
+        {
+            currentPlayerHealth -= maxPlayerHealth - damage;
+        }
+    }
+    public void DecreaseHealthEmemy(float damage)
+    {
+        if (currentEnemyHealth > 0)
+        {
+            currentEnemyHealth -= maxEnemyHealth - damage;
         }
     }
 }

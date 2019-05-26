@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShoot : MonoBehaviour
+public class AiController : MonoBehaviour
 {
     //Creating a reference for timer to use its properties and methods
     public Timer timer;
@@ -15,15 +15,22 @@ public class EnemyShoot : MonoBehaviour
     {
         enemyBulletPrefab.transform.position = enemyPointOfFire.position;
         enemyBulletPrefab.transform.rotation = enemyPointOfFire.rotation;
+        if (GameManager.instance.currentEnemyHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
-    public void EShoot(GameObject enemyBulletPrefab, float seconds)
+    public void EnemyShoot(GameObject enemyBulletPrefab)
     {
-        Instantiate(enemyBulletPrefab);
+            Instantiate(enemyBulletPrefab);
+    }
+    public void InitiateEnemyControls(float seconds)
+    {
         timer.StartTimer();
         if (timer.currentTime > seconds)
         {
+            EnemyShoot(enemyBulletPrefab.gameObject);
             timer.ResetTime();
-            Destroy(this.gameObject);
         }
     }
 }

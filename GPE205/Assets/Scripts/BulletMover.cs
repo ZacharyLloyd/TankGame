@@ -59,9 +59,19 @@ public class BulletMover : MonoBehaviour
         GameManager.instance.bulletInstance--;
     }
     //If the bullet hits a collider tagged with rock destroy the bullet
-    private void OnTriggerEnter (Collider rock)
+    private void OnTriggerEnter (Collider collide)
     {
-        if (rock.gameObject.tag == "Rock")
+        if (collide.gameObject.tag == "Rock")
             Destroy(this.gameObject);
+        if (collide.gameObject.tag == "Player")
+        {
+            GameManager.instance.DecreaseHealth(data.enemyDamage);
+            Destroy(this.gameObject);
+        }
+        if (collide.gameObject.tag == "Enemy")
+        {
+            GameManager.instance.DecreaseHealthEmemy(data.playerDamage);
+            Destroy(this.gameObject);
+        }
     }
 }

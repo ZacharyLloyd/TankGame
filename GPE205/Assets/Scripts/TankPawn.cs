@@ -19,6 +19,11 @@ public class TankPawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.instance.currentPlayerHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     public void Move (Vector3 worldDirectionToMove)

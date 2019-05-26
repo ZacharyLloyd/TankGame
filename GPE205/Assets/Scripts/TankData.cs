@@ -18,4 +18,8 @@ public class TankData : MonoBehaviour
     public float shotsPerSecond;
     public float rotateSpeed;
     public float turretRotateSpeed;
+    public float playerDamage;
+    public float playerHealth;
+    public float enemyDamage;
+    public float enemyHealth;
 }

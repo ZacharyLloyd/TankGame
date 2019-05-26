@@ -17,9 +17,10 @@ public class Shoot : MonoBehaviour
     }
     /*The TankShoot method causes the bullet to spawn which is then moved 
     by the BulletMover script*/
-    public void TankShoot(GameObject bulletPrefab)
+    public bool TankShoot(GameObject bulletPrefab)
     {
         Instantiate(bulletPrefab);
+        return true;
     }
     
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class TankController : MonoBehaviour
 {
     //Setting references to other scripts to grab their properties and methods
+    public AiController aiController;
     public Shoot shoot;
     public TankData pawn;
     //Creating an enum for the ControlScheme allong with giving it a property
@@ -60,10 +61,13 @@ public class TankController : MonoBehaviour
                 pawn.turretRotation.Rotate(pawn.turretRotateSpeed * Time.deltaTime);
             }
             //If the space key is down, 
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (GameManager.instance.bulletInstance != 1)
+                {
                     shoot.TankShoot(shoot.bulletPrefab);
+                    aiController.EnemyShoot(aiController.enemyBulletPrefab);
+                }
             }
         }
         //If the ArrowKeys control scheme is selected
