@@ -41,5 +41,14 @@ public class TankPawn : MonoBehaviour
         to add a force*/
         data.bodytf.Rotate(new Vector3(0, direction * data.rotateSpeed * Time.deltaTime, 0));
     }
-
+    public void RotateTowards(Vector3 lookVector)
+    {
+        //Find the vector to the target
+        Vector3 vectorToTarget = lookVector;
+        //Find quaternion to look down that vector
+        Quaternion targetQuaternion = Quaternion.LookRotation(vectorToTarget, Vector3.up);
+        //Set the rotation to partial towards that quaternion
+        data.bodytf.rotation =
+            Quaternion.RotateTowards(data.bodytf.rotation, targetQuaternion, data.rotateSpeed * Time.deltaTime);
+    }
 }

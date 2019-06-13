@@ -22,4 +22,10 @@ public class TankData : MonoBehaviour
     public float playerHealth;
     public float enemyDamage;
     public float enemyHealth;
+
+    public void Awake()
+    {
+        bodytf = GetComponent<Transform>();
+        mover = GetComponent<TankPawn>();
+    }
 }
