@@ -66,7 +66,6 @@ public class TankController : MonoBehaviour
                 if (GameManager.instance.bulletInstance != 1)
                 {
                     shoot.TankShoot(shoot.bulletPrefab);
-                    //aiController.EnemyShoot(aiController.enemyBulletPrefab);
                 }
             }
         }

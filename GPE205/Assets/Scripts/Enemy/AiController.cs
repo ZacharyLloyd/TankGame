@@ -7,6 +7,7 @@ public class AiController : MonoBehaviour
     //Creating a reference for timer to use its properties and methods
     public Timer timer;
     public TankData pawn;
+    public Shoot shoot;
     //The properties used in this script
     public Transform enemyPointOfFire;
     public GameObject enemyBulletPrefab;
@@ -18,6 +19,8 @@ public class AiController : MonoBehaviour
     public bool isForward;
     public float stateStartTime;
     public AIStates currentState;
+    public AIAttackState currentAttackState = AIAttackState.None;
+    public bool isDead = false;
     //Object Avoidance
     public AIAvoidState currentAvoidState = AIAvoidState.None;
     public float feelerDistance;
@@ -38,7 +41,8 @@ public class AiController : MonoBehaviour
         Idle,
         Patrol,
         Chase,
-        Flee
+        Flee,
+        Dead
     };
 
     public enum AIAvoidState
@@ -47,30 +51,62 @@ public class AiController : MonoBehaviour
         TurnToAvoid,
         MoveToAvoid
     };
+    public enum AIAttackState
+    {
+        None,
+        Attack
+    }
     // Update is called once per frame
     void Update()
     {
-        //enemyBulletPrefab.transform.position = enemyPointOfFire.position;
-        //enemyBulletPrefab.transform.rotation = enemyPointOfFire.rotation;
-        //if (GameManager.instance.currentEnemyHealth <= 0)
-        //{
-        //    Destroy(gameObject);
-        //}
+        if(!isDead)
+        {
+            AiMain();
+        }
+        if(pawn.enemyHealth <= 0)
+        {
+            ChangeState(AIStates.Dead);
+        }
     }
-    //public void EnemyShoot(GameObject enemyBulletPrefab)
-    //{
-    //        Instantiate(enemyBulletPrefab);
-    //}
-    //public void InitiateEnemyControls(float seconds)
-    //{
-    //    timer.StartTimer();
-    //    if (timer.currentTime > seconds)
-    //    {
-    //        EnemyShoot(enemyBulletPrefab.gameObject);
-    //        timer.ResetTime();
-    //    }
-    //}
-    public void ChangeState(AIStates newState)
+    protected void AiMain()
+    {
+        switch (currentState)
+        {
+            case AIStates.Idle:
+                break;
+            case AIStates.Patrol:
+                break;
+            case AIStates.Chase:
+                break;
+            case AIStates.Flee:
+                break;
+            case AIStates.Dead:
+                break;
+            default:
+                break;
+        }
+        switch (currentAvoidState)
+        {
+            case AIAvoidState.None:
+                break;
+            case AIAvoidState.TurnToAvoid:
+                break;
+            case AIAvoidState.MoveToAvoid:
+                break;
+            default:
+                break;
+        }
+        switch (currentAttackState)
+        {
+            case AIAttackState.None:
+                break;
+            case AIAttackState.Attack:
+                break;
+            default:
+                break;
+        }
+    }
+    public virtual void ChangeState(AIStates newState)
     {
         //Saving the time of entering a new state
         stateStartTime = Time.time;
@@ -78,16 +114,12 @@ public class AiController : MonoBehaviour
         //Reset the avoidance state
         currentAvoidState = AIAvoidState.None;
     }
-    public void ChangeAvoidState(AIAvoidState newState)
+    public virtual void ChangeAvoidState(AIAvoidState newState)
     {
         startAvoidTime = Time.time;
         currentAvoidState = newState;
     }
-    public void Idle()
-    {
-        //Does nothing
-    }
-    public bool isBlocked()
+    public virtual bool IsBlocked()
     {
         if(Physics.Raycast(pawn.bodytf.position, pawn.bodytf.forward, feelerDistance))
         {
@@ -95,7 +127,7 @@ public class AiController : MonoBehaviour
         }
         return false;
     }
-    public void Seek(Transform target)
+    public virtual void Seek(Transform target)
     {
         switch(currentAvoidState)
         {
@@ -105,7 +137,7 @@ public class AiController : MonoBehaviour
                 pawn.mover.RotateTowards(targetVector);
                 pawn.mover.Move(Vector3.forward);
                 //If blocked
-                if(isBlocked())
+                if(IsBlocked())
                 {
                     //Change to TurnToAvoid
                     ChangeAvoidState(AIAvoidState.TurnToAvoid);
@@ -115,7 +147,7 @@ public class AiController : MonoBehaviour
                 //Rotate
                 pawn.mover.Rotate(1);
                 //If not blocked
-                if(!isBlocked())
+                if(!IsBlocked())
                 {
                     ChangeAvoidState(AIAvoidState.MoveToAvoid);
                 }
@@ -124,7 +156,7 @@ public class AiController : MonoBehaviour
                 //Move forward
                 pawn.mover.Move(Vector3.forward);
                 //If blocked
-                if(isBlocked())
+                if(IsBlocked())
                 {
                     ChangeAvoidState(AIAvoidState.TurnToAvoid);
                 }
@@ -136,13 +168,36 @@ public class AiController : MonoBehaviour
                 break;
         }
     }
-    public void SeekPoint(Vector3 targetPoint)
+    public virtual void SeekPoint(Vector3 targetPoint)
     {
         Vector3 targetVector = (targetPoint - pawn.bodytf.position).normalized;
         pawn.mover.RotateTowards(targetVector);
         pawn.mover.Move(Vector3.forward);
     }
-    public void Flee(Transform target)
+    public virtual bool MoveToAvoid()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(pawn.transform.position, transform.forward, out hit, feelerDistance))
+        {
+            if(hit.collider.tag == "Rock")
+            {
+                pawn.mover.Rotate(pawn.rotateSpeed * Time.deltaTime);
+                return true;
+            }
+            else
+            {
+                ChangeState(AIStates.Patrol);
+                ChangeAvoidState(AIAvoidState.None);
+                return false;
+            }
+        }
+        return false;
+    }
+    public virtual void Idle()
+    {
+        //Does nothing
+    }
+    public virtual void Flee(Transform target)
     {
         //Find the vector to the target
         Vector3 targetVector = (target.position - pawn.bodytf.position);
@@ -153,7 +208,7 @@ public class AiController : MonoBehaviour
         //Move forwards(away from player)
         pawn.mover.Move(Vector3.forward);
     }
-    public void Patrol()
+    public virtual void Patrol()
     {
         //Seek the targeted waypoint
         Seek(waypoints[currentWaypoint]);
@@ -196,5 +251,19 @@ public class AiController : MonoBehaviour
                 }
             }
         }
+    }
+    public virtual void Chase(Transform target)
+    {
+        Vector3 targetVector = (target.position - pawn.bodytf.position).normalized;
+        pawn.mover.RotateTowards(targetVector);
+        pawn.mover.Move(Vector3.forward * pawn.moveSpeed);
+    }
+    public virtual void Attack(Transform target)
+    {
+        shoot.InitateEnemyShoot(pawn.shotsPerSecond);
+    }
+    public virtual void Dead()
+    {
+        isDead = true;
     }
 }

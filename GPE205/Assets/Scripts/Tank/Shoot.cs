@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    public Timer timer;
     //Setting a reference to access properties and methods from other scripts
     public Transform pointOfFire;
     public GameObject bulletPrefab;
@@ -22,5 +23,13 @@ public class Shoot : MonoBehaviour
         Instantiate(bulletPrefab);
         return true;
     }
-    
+    public void InitateEnemyShoot(float secondsUntilShoot)
+    {
+        timer.StartTimer();
+        if(timer.currentTime > secondsUntilShoot)
+        {
+            TankShoot(bulletPrefab.gameObject);
+            timer.ResetTime();
+        }
+    }
 }
