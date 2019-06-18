@@ -25,11 +25,11 @@ public class Shoot : MonoBehaviour
     }
     public void InitateEnemyShoot(float secondsUntilShoot)
     {
-        timer.StartTimer();
-        if(timer.currentTime > secondsUntilShoot)
+        timer.StartTimer(2);
+        if(timer.currentTime[2] > secondsUntilShoot)
         {
             TankShoot(bulletPrefab.gameObject);
-            timer.ResetTime();
+            timer.ResetTime(2, false);
         }
     }
 }

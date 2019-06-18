@@ -19,6 +19,7 @@ public class AiController : MonoBehaviour
     public bool isForward;
     public float stateStartTime;
     public AIStates currentState;
+    public float startAttackTime;
     public AIAttackState currentAttackState = AIAttackState.None;
     public bool isDead = false;
     //Object Avoidance
@@ -106,18 +107,24 @@ public class AiController : MonoBehaviour
                 break;
         }
     }
-    public virtual void ChangeState(AIStates newState)
+    public void ChangeState(AIStates newState)
     {
-        //Saving the time of entering a new state
-        stateStartTime = Time.time;
+        timer.StartTimer(0);
+        stateStartTime = timer.currentTime[0];
         currentState = newState;
-        //Reset the avoidance state
         currentAvoidState = AIAvoidState.None;
     }
-    public virtual void ChangeAvoidState(AIAvoidState newState)
+    public void ChangeAvoidState(AIAvoidState newState)
     {
-        startAvoidTime = Time.time;
+        timer.StartTimer(1);
+        startAvoidTime = timer.currentTime[1];
         currentAvoidState = newState;
+    }
+    public void ChangeAttackState(AIAttackState newState)
+    {
+        timer.StartTimer(3);
+        startAttackTime = timer.currentTime[3];
+        currentAttackState = newState;
     }
     public virtual bool IsBlocked()
     {
