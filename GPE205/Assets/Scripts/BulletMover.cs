@@ -45,10 +45,10 @@ public class BulletMover : MonoBehaviour
     and if so it resets the timer along with destroying the object*/
     public void DestroyDuration(float seconds)
     {
-        timer.StartTimer();
-        if (timer.currentTime > seconds)
+        timer.StartTimer(11);
+        if (timer.currentTime[11] > seconds)
         {
-            timer.ResetTime();
+            timer.ResetTime(11, false);
             Destroy(this.gameObject);
         }
     }
@@ -65,12 +65,12 @@ public class BulletMover : MonoBehaviour
             Destroy(this.gameObject);
         if (collide.gameObject.tag == "Player")
         {
-            GameManager.instance.DecreaseHealth(data.enemyDamage);
+            GameManager.instance.DecreaseHealth(data.damage);
             Destroy(this.gameObject);
         }
         if (collide.gameObject.tag == "Enemy")
         {
-            GameManager.instance.DecreaseHealthEmemy(data.playerDamage);
+            GameManager.instance.DecreaseHealthEmemy(data.damage);
             Destroy(this.gameObject);
         }
     }

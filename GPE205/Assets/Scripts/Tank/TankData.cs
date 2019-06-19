@@ -18,10 +18,10 @@ public class TankData : MonoBehaviour
     public float shotsPerSecond;
     public float rotateSpeed;
     public float turretRotateSpeed;
-    public float playerDamage;
-    public float playerHealth;
-    public float enemyDamage;
-    public float enemyHealth;
+    public float damage;
+    public float maxDamage;
+    public float health;
+    public float maxHealth;
 
     public void Awake()
     {

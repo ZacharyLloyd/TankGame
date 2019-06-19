@@ -22,6 +22,7 @@ public class AiController : MonoBehaviour
     public float startAttackTime;
     public AIAttackState currentAttackState = AIAttackState.None;
     public bool isDead = false;
+    public SphereCollider hearingRadius;
     //Object Avoidance
     public AIAvoidState currentAvoidState = AIAvoidState.None;
     public float feelerDistance;
@@ -64,7 +65,7 @@ public class AiController : MonoBehaviour
         {
             AiMain();
         }
-        if(pawn.enemyHealth <= 0)
+        if(pawn.health <= 0)
         {
             ChangeState(AIStates.Dead);
         }
@@ -215,7 +216,7 @@ public class AiController : MonoBehaviour
         //Move forwards(away from player)
         pawn.mover.Move(Vector3.forward);
     }
-    public virtual void Patrol()
+    public virtual void Patrol(Transform target)
     {
         //Seek the targeted waypoint
         Seek(waypoints[currentWaypoint]);
@@ -272,5 +273,31 @@ public class AiController : MonoBehaviour
     public virtual void Dead()
     {
         isDead = true;
+    }
+    public bool CanHear()
+    {
+        switch (hearingRadius.isTrigger)
+        {
+            case false:
+                break;
+            case true:
+                if (GetComponentInChildren<HearingRadar>().playerDetected)
+                {
+                    return true;
+                }
+                break;
+        }
+        return false;
+    }
+    public bool CanSee()
+    {
+        if(Physics.Raycast(pawn.transform.position, pawn.transform.forward, out RaycastHit hit, feelerDistance))
+        {
+            if(hit.collider.tag == "Player")
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -13,6 +13,33 @@ public class DumbAiController : AiController
     // Update is called once per frame
     void Update()
     {
-        
+        AiMain();
+    }
+    public override void Idle()
+    {
+        if (CanHear())
+        {
+            ChangeState(AIStates.Chase);
+        }
+        if (CanSee())
+        {
+            ChangeAttackState(AIAttackState.Attack);
+        }
+    }
+    public override void Chase(Transform target)
+    {
+        base.Chase(target);
+    }
+    public override void Attack(Transform target)
+    {
+        base.Attack(target);
+    }
+    public override bool MoveToAvoid()
+    {
+        return base.MoveToAvoid();
+    }
+    public override void Dead()
+    {
+        base.Dead();
     }
 }
