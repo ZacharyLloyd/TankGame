@@ -27,5 +27,9 @@ public class TankData : MonoBehaviour
     {
         bodytf = GetComponent<Transform>();
         mover = GetComponent<TankPawn>();
+        if(bodytf == null || turrettf == null || turretRotation == null || mover == null)
+        {
+            //Do nothing
+        }
     }
 }
