@@ -12,7 +12,7 @@ public class CameraMovement : MonoBehaviour
     //Finding the player for the camera to follow
     void Start()
     {
-        target = FindObjectOfType<TankPawn>().gameObject;
+        target = FindObjectOfType<TurretRotation>().gameObject;
     }
     // Calls every frame after regular update but there is none in this case
     void FixedUpdate()
