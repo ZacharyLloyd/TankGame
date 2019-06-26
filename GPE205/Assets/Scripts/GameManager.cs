@@ -12,10 +12,6 @@ public class GameManager : MonoBehaviour
     public int bulletInstance;
     public TankData data;
     public float damage;
-    public float currentPlayerHealth;
-    public float maxPlayerHealth;
-    public float currentEnemyHealth;
-    public float maxEnemyHealth;
 
     private void Awake()
     {
@@ -32,26 +28,17 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(currentPlayerHealth);
-        Debug.Log(currentEnemyHealth);
     }
     private void Start()
     {
-        currentPlayerHealth = maxPlayerHealth;
-        currentEnemyHealth = maxEnemyHealth;
+        data.health = data.maxHealth;
     }
     public void DecreaseHealth(float damage)
     {
-        if (currentPlayerHealth > 0)
+        damage = data.damage;
+        if (data.health > 0)
         {
-            currentPlayerHealth -= maxPlayerHealth - damage;
-        }
-    }
-    public void DecreaseHealthEmemy(float damage)
-    {
-        if (currentEnemyHealth > 0)
-        {
-            currentEnemyHealth -= maxEnemyHealth - damage;
+            data.health -= data.maxHealth - data.damage;
         }
     }
 }

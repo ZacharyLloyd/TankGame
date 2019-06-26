@@ -630,10 +630,10 @@ MonoBehaviour:
   shotsPerSecond: 2
   rotateSpeed: 75
   turretRotateSpeed: 75
-  damage: 0
-  maxDamage: 0
-  health: 0
-  maxHealth: 0
+  damage: 50
+  maxDamage: 50
+  health: 100
+  maxHealth: 100
 --- !u!143 &867915699
 CharacterController:
   m_ObjectHideFlags: 0
@@ -732,12 +732,12 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.4
   far clip plane: 10000
-  field of view: 60
+  field of view: 50
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -778,9 +778,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef59967b98719a4697cec99b1f3d425, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 867915696}
   target: {fileID: 1384186490}
-  smoothDuration: 0.125
-  offset: {x: 0, y: 250, z: -400}
+  offset: {x: 0, y: 140, z: -400}
 --- !u!1 &1001500730
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +930,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tf: {fileID: 248697200}
   data: {fileID: 867915696}
-  camera: {fileID: 963194229}
 --- !u!114 &1059178733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1023,7 +1022,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1001500734}
-  - {fileID: 1348772928}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1060,10 +1058,6 @@ MonoBehaviour:
   bulletInstance: 0
   data: {fileID: 867915696}
   damage: 50
-  currentPlayerHealth: 0
-  maxPlayerHealth: 100
-  currentEnemyHealth: 0
-  maxEnemyHealth: 100
 --- !u!4 &1348772928
 Transform:
   m_ObjectHideFlags: 0
@@ -1072,11 +1066,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1348772926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1732.7584, y: -617.16974, z: 1043.1118}
+  m_LocalPosition: {x: -1732.7584, y: -588.9697, z: 1043.1118}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1229136812}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1384186368
 GameObject:
@@ -9506,7 +9500,7 @@ GameObject:
   - component: {fileID: 4570244243064637637}
   - component: {fileID: 4570244243064637635}
   - component: {fileID: 4570244243064637633}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DumbTank
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -9549,16 +9543,16 @@ MonoBehaviour:
   currentWaypoint: 0
   cutoff: 0
   isForward: 0
-  stateStartTime: 0
+  stateStartTime: 2
   currentState: 0
-  startAttackTime: 0
+  startAttackTime: 2
   currentAttackState: 0
   isDead: 0
   hearingRadius: {fileID: 4570244243064637631}
   currentAvoidState: 0
-  feelerDistance: 0
-  avoidMoveTime: 0
-  startAvoidTime: 0
+  feelerDistance: 12
+  avoidMoveTime: 2
+  startAvoidTime: 2
 --- !u!114 &4570244243064637627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9608,15 +9602,15 @@ MonoBehaviour:
   turrettf: {fileID: 4570244243064607960}
   mover: {fileID: 4570244243064637637}
   turretRotation: {fileID: 0}
-  moveSpeed: 0
-  reverseMoveSpeed: 0
+  moveSpeed: 200
+  reverseMoveSpeed: 200
   shotsPerSecond: 2
-  rotateSpeed: 0
+  rotateSpeed: 75
   turretRotateSpeed: 0
-  damage: 0
-  maxDamage: 0
-  health: 0
-  maxHealth: 0
+  damage: 50
+  maxDamage: 50
+  health: 100
+  maxHealth: 100
 --- !u!1 &4570244243064637630
 GameObject:
   m_ObjectHideFlags: 0
@@ -9643,7 +9637,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4570244243064637624}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 10

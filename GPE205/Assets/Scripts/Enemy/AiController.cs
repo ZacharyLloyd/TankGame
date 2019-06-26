@@ -281,7 +281,7 @@ public class AiController : MonoBehaviour
             case false:
                 break;
             case true:
-                if (GetComponentInChildren<HearingRadar>().playerDetected)
+                if (GetComponent<HearingRadar>().playerDetected)
                 {
                     return true;
                 }

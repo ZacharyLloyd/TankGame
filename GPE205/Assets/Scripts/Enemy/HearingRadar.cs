@@ -11,7 +11,10 @@ public class HearingRadar : MonoBehaviour
         {
             playerDetected = true;
         }
-        else
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
         {
             playerDetected = false;
         }

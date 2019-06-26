@@ -70,7 +70,7 @@ public class BulletMover : MonoBehaviour
         }
         if (collide.gameObject.tag == "Enemy")
         {
-            GameManager.instance.DecreaseHealthEmemy(data.damage);
+            GameManager.instance.DecreaseHealth(data.damage);
             Destroy(this.gameObject);
         }
     }

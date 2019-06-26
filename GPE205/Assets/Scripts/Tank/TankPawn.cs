@@ -19,7 +19,7 @@ public class TankPawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.instance.currentPlayerHealth <= 0)
+        if(GameManager.instance.data.health <= 0)
         {
             Destroy(gameObject);
         }
@@ -41,6 +41,7 @@ public class TankPawn : MonoBehaviour
         to add a force*/
         data.bodytf.Rotate(new Vector3(0, direction * data.rotateSpeed * Time.deltaTime, 0));
     }
+    //For AI only
     public void RotateTowards(Vector3 lookVector)
     {
         //Find the vector to the target

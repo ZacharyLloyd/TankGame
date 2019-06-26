@@ -21,13 +21,13 @@ public class DumbAiController : AiController
         {
             ChangeState(AIStates.Chase);
         }
+    }
+    public override void Chase(Transform target)
+    {
         if (CanSee())
         {
             ChangeAttackState(AIAttackState.Attack);
         }
-    }
-    public override void Chase(Transform target)
-    {
         base.Chase(target);
     }
     public override void Attack(Transform target)

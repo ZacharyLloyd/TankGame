@@ -7,7 +7,6 @@ public class TurretRotation : MonoBehaviour
     //Setting references to other scripts that will be used
     public Transform tf;
     public TankData data;
-    public new CameraMovement camera;
 
 
     // Start is called before the first frame update
@@ -15,7 +14,6 @@ public class TurretRotation : MonoBehaviour
     {
         tf = GetComponentInParent<Transform>();
         data = GetComponentInParent<TankData>();
-        camera = GetComponent<CameraMovement>();
     }
 
     // Update is called once per frame
