@@ -22,6 +22,8 @@ public class TankData : MonoBehaviour
     public float maxDamage;
     public float health;
     public float maxHealth;
+    public float startShootTime;
+    public float shootAgainTime;
 
     public void Awake()
     {

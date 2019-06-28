@@ -28,8 +28,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4665914491539870900}
-  m_LocalRotation: {x: 2.060574e-13, y: -0.0066700745, z: -0.0000000010867005, w: 0.9999778}
-  m_LocalPosition: {x: 28.232967, y: 83.51642, z: 2000.7395}
+  m_LocalRotation: {x: 1.563194e-13, y: -0.040031407, z: -0.0000000065219306, w: 0.9991985}
+  m_LocalPosition: {x: 37.194305, y: 65.75369, z: 1359.4335}
   m_LocalScale: {x: 8.159183, y: 8.159183, z: 8.159183}
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,7 +95,6 @@ MonoBehaviour:
   data: {fileID: 0}
   tf: {fileID: 4671785359471618420}
   shoot: {fileID: 0}
-  timer: {fileID: 0}
   destroyDuration: 3
   bulletSpeed: 1500
 --- !u!65 &3400389876209984870

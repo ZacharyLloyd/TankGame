@@ -8,7 +8,6 @@ public class BulletMover : MonoBehaviour
     public TankData data;
     public Transform tf;
     public Shoot shoot;
-    public Timer timer;
     //These are properties used in this script
     public float destroyDuration;
     public float bulletSpeed;
@@ -16,7 +15,6 @@ public class BulletMover : MonoBehaviour
     private void Awake()
     {
         shoot = FindObjectOfType<Shoot>();
-        timer = FindObjectOfType<Timer>();
         data = FindObjectOfType<TankData>();
         GameManager.instance.bulletInstance++;
     }
@@ -45,12 +43,7 @@ public class BulletMover : MonoBehaviour
     and if so it resets the timer along with destroying the object*/
     public void DestroyDuration(float seconds)
     {
-        timer.StartTimer(11);
-        if (timer.currentTime[11] > seconds)
-        {
-            timer.ResetTime(11, false);
-            Destroy(this.gameObject);
-        }
+        Destroy(this.gameObject, destroyDuration);
     }
     /*If the bullet is destroy take away the instance of
     it that was created*/
@@ -59,19 +52,25 @@ public class BulletMover : MonoBehaviour
         GameManager.instance.bulletInstance--;
     }
     //If the bullet hits a collider tagged with rock destroy the bullet
-    private void OnTriggerEnter (Collider collide)
+    private void OnTriggerEnter(Collider collide)
     {
-        if (collide.gameObject.tag == "Rock")
-            Destroy(this.gameObject);
-        if (collide.gameObject.tag == "Player")
+        if (collide.GetComponent<TankData>() != null)
         {
-            GameManager.instance.DecreaseHealth(data.damage);
-            Destroy(this.gameObject);
+            collide.GetComponent<TankData>().health -= data.damage;
         }
-        if (collide.gameObject.tag == "Enemy")
-        {
-            GameManager.instance.DecreaseHealth(data.damage);
-            Destroy(this.gameObject);
-        }
+        Destroy(this.gameObject);
+
+        //if (collide.gameObject.tag == "Rock")
+        //    Destroy(this.gameObject);
+        //if (collide.gameObject.tag == "Player")
+        //{
+        //    GameManager.instance.DecreaseHealth(data.damage);
+        //    Destroy(this.gameObject);
+        //}
+        //if (collide.gameObject.tag == "Enemy" )
+        //{
+        //    GameManager.instance.DecreaseHealth(data.damage);
+        //    Destroy(this.gameObject);
+        //}
     }
 }

@@ -21,6 +21,7 @@ public class DumbAiController : AiController
         {
             ChangeState(AIStates.Chase);
         }
+        base.Idle();
     }
     public override void Chase(Transform target)
     {

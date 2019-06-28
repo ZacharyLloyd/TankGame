@@ -8,21 +8,26 @@ public class AiController : MonoBehaviour
     public Timer timer;
     public TankData pawn;
     public Shoot shoot;
+    public Noisemaker noisemaker;
     //The properties used in this script
     public Transform enemyPointOfFire;
     public GameObject enemyBulletPrefab;
     //Parts for the AI
+    public TankData target;
     public LoopTypes loopType;
     public List<Transform> waypoints;
     public int currentWaypoint;
     public float cutoff;
     public bool isForward;
-    public float stateStartTime;
+    public float startStateTime;
     public AIStates currentState;
     public float startAttackTime;
     public AIAttackState currentAttackState = AIAttackState.None;
     public bool isDead = false;
     public SphereCollider hearingRadius;
+    public float hearingScale;
+    //public float switchStateTime;
+    //public float switchAttackTime;
     //Object Avoidance
     public AIAvoidState currentAvoidState = AIAvoidState.None;
     public float feelerDistance;
@@ -75,34 +80,41 @@ public class AiController : MonoBehaviour
         switch (currentState)
         {
             case AIStates.Idle:
+                Idle();
                 break;
             case AIStates.Patrol:
+                Patrol(target.transform);
                 break;
             case AIStates.Chase:
+                Chase(target.transform);
                 break;
             case AIStates.Flee:
+                Flee(target.transform);
                 break;
             case AIStates.Dead:
+                Dead();
                 break;
             default:
                 break;
         }
-        switch (currentAvoidState)
-        {
-            case AIAvoidState.None:
-                break;
-            case AIAvoidState.TurnToAvoid:
-                break;
-            case AIAvoidState.MoveToAvoid:
-                break;
-            default:
-                break;
-        }
+        //switch (currentAvoidState)
+        //{
+        //    case AIAvoidState.None:
+        //        break;
+        //    case AIAvoidState.TurnToAvoid:
+        //        break;
+        //    case AIAvoidState.MoveToAvoid:
+        //        MoveToAvoid();
+        //        break;
+        //    default:
+        //        break;
+        //}
         switch (currentAttackState)
         {
             case AIAttackState.None:
                 break;
             case AIAttackState.Attack:
+                Attack(target.transform);
                 break;
             default:
                 break;
@@ -111,7 +123,7 @@ public class AiController : MonoBehaviour
     public void ChangeState(AIStates newState)
     {
         timer.StartTimer(0);
-        stateStartTime = timer.currentTime[0];
+        startStateTime = timer.currentTime[0];
         currentState = newState;
         currentAvoidState = AIAvoidState.None;
     }
@@ -274,24 +286,41 @@ public class AiController : MonoBehaviour
     {
         isDead = true;
     }
-    public bool CanHear()
+    public bool CanHear(Transform target)
     {
-        switch (hearingRadius.isTrigger)
+        //If the target does not have a noisemaker we cannot hear them
+        noisemaker = target.GetComponent<Noisemaker>();
+        if (noisemaker == null)
         {
-            case false:
-                break;
-            case true:
-                if (GetComponent<HearingRadar>().playerDetected)
-                {
-                    return true;
-                }
-                break;
+            return false;
         }
+        //If they do have a noisemaker, check distance -- if it is <= (PlayerVolume * hearingScale), then we can hear them
+        Transform targetTf = target.GetComponent<Transform>();
+        if (Vector3.Distance(target.position, targetTf.position) <= noisemaker.PlayerVolume * hearingScale)
+        {
+            return true;
+        }
+        //Otherwise enemies cannot hear player
         return false;
+
+        //switch (hearingRadius.isTrigger)
+        //{
+        //    case false:
+        //        break;
+        //    case true:
+        //        if (GetComponent<HearingRadar>().playerDetected)
+        //        {
+        //            return true;
+        //        }
+        //        break;
+        //}
+        //return false;
     }
     public bool CanSee()
     {
-        if(Physics.Raycast(pawn.transform.position, pawn.transform.forward, out RaycastHit hit, feelerDistance))
+        RaycastHit hit;
+        Debug.DrawRay(enemyPointOfFire.position, transform.forward * feelerDistance, Color.red);
+        if(Physics.Raycast(enemyPointOfFire.position, pawn.transform.forward, out hit, feelerDistance))
         {
             if(hit.collider.tag == "Player")
             {

@@ -33,12 +33,4 @@ public class GameManager : MonoBehaviour
     {
         data.health = data.maxHealth;
     }
-    public void DecreaseHealth(float damage)
-    {
-        damage = data.damage;
-        if (data.health > 0)
-        {
-            data.health -= data.maxHealth - data.damage;
-        }
-    }
 }

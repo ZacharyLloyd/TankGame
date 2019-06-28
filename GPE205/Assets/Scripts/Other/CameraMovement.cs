@@ -27,7 +27,10 @@ public class CameraMovement : MonoBehaviour
     {
         if(offsetPositionSpace == Space.Self)
         {
-            transform.position = target.transform.TransformPoint(offset);
+            if (target != null)
+            {
+                transform.position = target.transform.TransformPoint(offset); 
+            }
         }
         else
         {
@@ -36,7 +39,11 @@ public class CameraMovement : MonoBehaviour
         //Figure out the rotation
         if(lookAt)
         {
-            transform.LookAt(target.transform);
+
+            if (target != null)
+            {
+                transform.LookAt(target.transform); 
+            }
         }
         else
         {
