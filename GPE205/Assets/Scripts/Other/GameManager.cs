@@ -10,11 +10,10 @@ public class GameManager : MonoBehaviour
     public List<TankController> players;
     //Used to instanciate the bullet
     public int bulletInstance;
-    public TankData data;
-    public float damage;
 
     private void Awake()
     {
+        #region Singleton
         //Using the singleton
         if (instance == null)
         {
@@ -24,13 +23,14 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
+        } 
+        #endregion
     }
     private void Update()
     {
     }
     private void Start()
     {
-        data.health = data.maxHealth;
+        
     }
 }

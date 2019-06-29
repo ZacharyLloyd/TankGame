@@ -15,37 +15,37 @@ PrefabInstance:
     - target: {fileID: 4671785359471618420, guid: 6b8b40e0c2647b04da5fcd5e3aaca4b9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -87.09999
+      value: 14.5026455
       objectReference: {fileID: 0}
     - target: {fileID: 4671785359471618420, guid: 6b8b40e0c2647b04da5fcd5e3aaca4b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 61.200005
+      value: 19.059874
       objectReference: {fileID: 0}
     - target: {fileID: 4671785359471618420, guid: 6b8b40e0c2647b04da5fcd5e3aaca4b9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1693.0999
+      value: -40.47718
       objectReference: {fileID: 0}
     - target: {fileID: 4671785359471618420, guid: 6b8b40e0c2647b04da5fcd5e3aaca4b9,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.010009904
       objectReference: {fileID: 0}
     - target: {fileID: 4671785359471618420, guid: 6b8b40e0c2647b04da5fcd5e3aaca4b9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: -0.9799044
       objectReference: {fileID: 0}
     - target: {fileID: 4671785359471618420, guid: 6b8b40e0c2647b04da5fcd5e3aaca4b9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.090663046
       objectReference: {fileID: 0}
     - target: {fileID: 4671785359471618420, guid: 6b8b40e0c2647b04da5fcd5e3aaca4b9,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.1773904
       objectReference: {fileID: 0}
     - target: {fileID: 4671785359471618420, guid: 6b8b40e0c2647b04da5fcd5e3aaca4b9,
         type: 3}
@@ -66,6 +66,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2183491728966389265, guid: 6b8b40e0c2647b04da5fcd5e3aaca4b9,
+        type: 3}
+      propertyPath: bulletSpeed
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b8b40e0c2647b04da5fcd5e3aaca4b9, type: 3}

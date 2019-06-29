@@ -19,7 +19,7 @@ public class TankPawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.instance.data.health <= 0)
+        if(data.health <= 0)
         {
             Destroy(gameObject);
         }
@@ -32,7 +32,7 @@ public class TankPawn : MonoBehaviour
         this way (0,0,1 becomes the player's foward)*/
         Vector3 directionToMove = data.bodytf.TransformDirection(worldDirectionToMove);
         //This is where the player would actually move
-        characterController.SimpleMove(directionToMove * data.moveSpeed);
+        characterController.SimpleMove(directionToMove * (data.moveSpeed * Time.deltaTime));
     }
     public void Rotate (float direction)
     {

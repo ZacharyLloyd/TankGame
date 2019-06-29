@@ -26,7 +26,7 @@ public class PatrolAiController : AiController
         {
             ChangeAttackState(AIAttackState.Attack);
         }
-        if(CanHear())
+        if(CanHear(target.transform))
         {
             ChangeState(AIStates.Chase);
         }

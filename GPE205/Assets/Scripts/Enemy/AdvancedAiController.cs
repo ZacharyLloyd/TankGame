@@ -22,7 +22,7 @@ public class AdvancedAiController : AiController
     }
     public override void Patrol(Transform target)
     {
-        if(CanHear())
+        if(CanHear(target.transform))
         {
             ChangeState(AIStates.Chase);
         }

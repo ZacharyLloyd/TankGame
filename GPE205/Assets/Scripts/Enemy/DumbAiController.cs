@@ -17,7 +17,7 @@ public class DumbAiController : AiController
     }
     public override void Idle()
     {
-        if (CanHear())
+        if (CanHear(target.transform))
         {
             ChangeState(AIStates.Chase);
         }
