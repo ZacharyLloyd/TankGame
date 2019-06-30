@@ -554,8 +554,8 @@ MonoBehaviour:
   turrettf: {fileID: 248697200}
   mover: {fileID: 867915695}
   turretRotation: {fileID: 1059178732}
-  moveSpeed: 20
-  reverseMoveSpeed: 20
+  moveSpeed: 100
+  reverseMoveSpeed: 80
   shotsPerSecond: 2
   rotateSpeed: 50
   turretRotateSpeed: 50
