@@ -24,10 +24,7 @@ public class AiController : MonoBehaviour
     public float startAttackTime;
     public AIAttackState currentAttackState = AIAttackState.None;
     public bool isDead = false;
-    public SphereCollider hearingRadius;
     public float hearingScale;
-    //public float switchStateTime;
-    //public float switchAttackTime;
     //Object Avoidance
     public AIAvoidState currentAvoidState = AIAvoidState.None;
     public float feelerDistance;
@@ -97,18 +94,16 @@ public class AiController : MonoBehaviour
             default:
                 break;
         }
-        //switch (currentAvoidState)
-        //{
-        //    case AIAvoidState.None:
-        //        break;
-        //    case AIAvoidState.TurnToAvoid:
-        //        break;
-        //    case AIAvoidState.MoveToAvoid:
-        //        MoveToAvoid();
-        //        break;
-        //    default:
-        //        break;
-        //}
+        switch (currentAvoidState)
+        {
+            case AIAvoidState.None:
+                break;
+            case AIAvoidState.MoveToAvoid:
+                MoveToAvoid();
+                break;
+            default:
+                break;
+        }
         switch (currentAttackState)
         {
             case AIAttackState.None:
@@ -141,8 +136,9 @@ public class AiController : MonoBehaviour
     }
     public virtual bool IsBlocked()
     {
-        if(Physics.Raycast(pawn.bodytf.position, pawn.bodytf.forward, feelerDistance))
+        if(Physics.Raycast(pawn.bodytf.position, pawn.bodytf.forward, out RaycastHit hit, feelerDistance))
         {
+            if(hit.collider.tag == "Rock")
             return true;
         }
         return false;
@@ -302,19 +298,6 @@ public class AiController : MonoBehaviour
         }
         //Otherwise enemies cannot hear player
         return false;
-
-        //switch (hearingRadius.isTrigger)
-        //{
-        //    case false:
-        //        break;
-        //    case true:
-        //        if (GetComponent<HearingRadar>().playerDetected)
-        //        {
-        //            return true;
-        //        }
-        //        break;
-        //}
-        //return false;
     }
     public bool CanSee()
     {
