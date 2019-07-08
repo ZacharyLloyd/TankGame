@@ -512,13 +512,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83951371}
-  m_LocalRotation: {x: -0, y: -0.034556296, z: -0, w: -0.9994028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0013809504, y: 1.9611781, z: 6.74798}
   m_LocalScale: {x: 0.042634312, y: 0.042634305, z: 0.042634312}
   m_Children: []
   m_Father: {fileID: 6926784}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &101146821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,9 +1135,9 @@ MonoBehaviour:
   startAttackTime: 0
   currentAttackState: 0
   isDead: 0
-  hearingScale: 15
+  hearingScale: 1
   currentAvoidState: 0
-  feelerDistance: 50
+  feelerDistance: 1
   avoidMoveTime: 0
   startAvoidTime: 0
 --- !u!143 &231872046
@@ -2857,7 +2857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310663345150258, guid: 64eff6a84e31077428dbea1165626501, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -42.3
+      value: -25.2
       objectReference: {fileID: 0}
     - target: {fileID: 4310663345150258, guid: 64eff6a84e31077428dbea1165626501, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2865,7 +2865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310663345150258, guid: 64eff6a84e31077428dbea1165626501, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 39.4
+      value: 57.5
       objectReference: {fileID: 0}
     - target: {fileID: 4310663345150258, guid: 64eff6a84e31077428dbea1165626501, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5594,13 +5594,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900140296}
-  m_LocalRotation: {x: -0, y: -0.034556296, z: -0, w: -0.9994028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0013809504, y: 1.9611781, z: 6.74798}
   m_LocalScale: {x: 0.042634312, y: 0.042634305, z: 0.042634312}
   m_Children: []
   m_Father: {fileID: 1479815282}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &915408040
 GameObject:
   m_ObjectHideFlags: 0
@@ -6148,13 +6148,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945168902}
-  m_LocalRotation: {x: -0, y: -0.034556296, z: -0, w: -0.9994028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0013809504, y: 1.9611781, z: 6.74798}
   m_LocalScale: {x: 0.042634312, y: 0.042634305, z: 0.042634312}
   m_Children: []
   m_Father: {fileID: 1190243382}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &945240387
 GameObject:
   m_ObjectHideFlags: 0
@@ -6770,13 +6770,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 984127624}
-  m_LocalRotation: {x: -0, y: -0.034556296, z: -0, w: -0.9994028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0013809504, y: 1.9611781, z: 6.74798}
   m_LocalScale: {x: 0.042634312, y: 0.042634305, z: 0.042634312}
   m_Children: []
   m_Father: {fileID: 256875321}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &988010219
 GameObject:
   m_ObjectHideFlags: 0
@@ -9537,7 +9537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9985a7e301cd58f4698425d017fc71c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerVolume: 10
+  PlayerVolume: 1
   SlowDownVolume: 0.016
 --- !u!1 &1384186492
 GameObject:
@@ -9601,7 +9601,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384186490}
   m_LocalRotation: {x: 0.000000081460335, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.46, y: 15.7, z: 2}
+  m_LocalPosition: {x: -1.46, y: 15.7, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 366394540}
@@ -22556,9 +22556,9 @@ MonoBehaviour:
   startAttackTime: 0
   currentAttackState: 0
   isDead: 0
-  hearingScale: 15
+  hearingScale: 1
   currentAvoidState: 0
-  feelerDistance: 50
+  feelerDistance: 1
   avoidMoveTime: 0
   startAvoidTime: 0
 --- !u!114 &4570244243064637627

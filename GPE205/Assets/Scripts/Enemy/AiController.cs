@@ -74,25 +74,28 @@ public class AiController : MonoBehaviour
     }
     protected void AiMain()
     {
-        switch (currentState)
+        if (target != null)
         {
-            case AIStates.Idle:
-                Idle();
-                break;
-            case AIStates.Patrol:
-                Patrol(target.transform);
-                break;
-            case AIStates.Chase:
-                Chase(target.transform);
-                break;
-            case AIStates.Flee:
-                Flee(target.transform);
-                break;
-            case AIStates.Dead:
-                Dead();
-                break;
-            default:
-                break;
+            switch (currentState)
+            {
+                case AIStates.Idle:
+                    Idle();
+                    break;
+                case AIStates.Patrol:
+                    Patrol(target.transform);
+                    break;
+                case AIStates.Chase:
+                    Chase(target.transform);
+                    break;
+                case AIStates.Flee:
+                    Flee(target.transform);
+                    break;
+                case AIStates.Dead:
+                    Dead();
+                    break;
+                default:
+                    break; 
+            }
         }
         switch (currentAvoidState)
         {
@@ -291,8 +294,7 @@ public class AiController : MonoBehaviour
             return false;
         }
         //If they do have a noisemaker, check distance -- if it is <= (PlayerVolume * hearingScale), then we can hear them
-        Transform targetTf = target.GetComponent<Transform>();
-        if (Vector3.Distance(target.position, targetTf.position) <= noisemaker.PlayerVolume * hearingScale)
+        if (Vector3.Distance(target.position, transform.position) <= noisemaker.PlayerVolume * hearingScale)
         {
             return true;
         }
