@@ -1089,9 +1089,7 @@ GameObject:
   - component: {fileID: 231872052}
   - component: {fileID: 231872051}
   - component: {fileID: 231872050}
-  - component: {fileID: 231872049}
   - component: {fileID: 231872048}
-  - component: {fileID: 231872047}
   - component: {fileID: 231872046}
   - component: {fileID: 231872045}
   m_Layer: 2
@@ -1135,9 +1133,9 @@ MonoBehaviour:
   startAttackTime: 0
   currentAttackState: 0
   isDead: 0
-  hearingScale: 1
+  hearingScale: 10
   currentAvoidState: 0
-  feelerDistance: 1
+  feelerDistance: 10
   avoidMoveTime: 0
   startAvoidTime: 0
 --- !u!143 &231872046
@@ -1158,19 +1156,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.9, z: 0}
---- !u!114 &231872047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231872044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85dc5b13c2d32044789e08282f023a34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerDetected: 0
 --- !u!114 &231872048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1187,21 +1172,6 @@ MonoBehaviour:
   pointOfFire: {fileID: 900140297}
   bulletPrefab: {fileID: 7650465669857403230, guid: fab61289cdf0405409618e75887a26cc,
     type: 3}
---- !u!114 &231872049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231872044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd4e6b4488a88814c86650244e22b037, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTime: []
-  restartTime: []
-  startTime: 
 --- !u!114 &231872050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,8 +1201,8 @@ MonoBehaviour:
   turrettf: {fileID: 231872055}
   mover: {fileID: 231872050}
   turretRotation: {fileID: 0}
-  moveSpeed: 10
-  reverseMoveSpeed: 10
+  moveSpeed: 20
+  reverseMoveSpeed: 20
   shotsPerSecond: 2
   rotateSpeed: 50
   turretRotateSpeed: 0
@@ -2857,7 +2827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310663345150258, guid: 64eff6a84e31077428dbea1165626501, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.2
+      value: -37.5
       objectReference: {fileID: 0}
     - target: {fileID: 4310663345150258, guid: 64eff6a84e31077428dbea1165626501, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2865,7 +2835,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310663345150258, guid: 64eff6a84e31077428dbea1165626501, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 57.5
+      value: 44.4
       objectReference: {fileID: 0}
     - target: {fileID: 4310663345150258, guid: 64eff6a84e31077428dbea1165626501, type: 3}
       propertyPath: m_LocalRotation.x
@@ -6395,7 +6365,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962351408}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 61.85, y: -12.300001, z: -65.21}
+  m_LocalPosition: {x: 61.85, y: -12.300001, z: 63.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1229136812}
@@ -6587,7 +6557,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973927420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -66.4, y: -12.300001, z: -65.9}
+  m_LocalPosition: {x: 60.3, y: -12.300001, z: -65.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1229136812}
@@ -7406,9 +7376,7 @@ GameObject:
   - component: {fileID: 1081752361}
   - component: {fileID: 1081752360}
   - component: {fileID: 1081752359}
-  - component: {fileID: 1081752358}
   - component: {fileID: 1081752357}
-  - component: {fileID: 1081752356}
   - component: {fileID: 1081752355}
   - component: {fileID: 1081752354}
   m_Layer: 2
@@ -7448,9 +7416,9 @@ MonoBehaviour:
   startAttackTime: 0
   currentAttackState: 0
   isDead: 0
-  hearingScale: 15
+  hearingScale: 10
   currentAvoidState: 0
-  feelerDistance: 50
+  feelerDistance: 10
   avoidMoveTime: 0
   startAvoidTime: 0
 --- !u!143 &1081752355
@@ -7471,19 +7439,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.9, z: 0}
---- !u!114 &1081752356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081752353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85dc5b13c2d32044789e08282f023a34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerDetected: 0
 --- !u!114 &1081752357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7500,21 +7455,6 @@ MonoBehaviour:
   pointOfFire: {fileID: 83951372}
   bulletPrefab: {fileID: 7650465669857403230, guid: fab61289cdf0405409618e75887a26cc,
     type: 3}
---- !u!114 &1081752358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1081752353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd4e6b4488a88814c86650244e22b037, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTime: []
-  restartTime: []
-  startTime: 
 --- !u!114 &1081752359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9537,7 +9477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9985a7e301cd58f4698425d017fc71c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerVolume: 1
+  PlayerVolume: 5
   SlowDownVolume: 0.016
 --- !u!1 &1384186492
 GameObject:
@@ -14309,9 +14249,7 @@ GameObject:
   - component: {fileID: 1538087839}
   - component: {fileID: 1538087838}
   - component: {fileID: 1538087837}
-  - component: {fileID: 1538087836}
   - component: {fileID: 1538087835}
-  - component: {fileID: 1538087834}
   - component: {fileID: 1538087833}
   - component: {fileID: 1538087832}
   m_Layer: 2
@@ -14351,9 +14289,9 @@ MonoBehaviour:
   startAttackTime: 0
   currentAttackState: 0
   isDead: 0
-  hearingScale: 15
+  hearingScale: 10
   currentAvoidState: 0
-  feelerDistance: 50
+  feelerDistance: 10
   avoidMoveTime: 0
   startAvoidTime: 0
 --- !u!143 &1538087833
@@ -14374,19 +14312,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.9, z: 0}
---- !u!114 &1538087834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538087831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85dc5b13c2d32044789e08282f023a34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerDetected: 0
 --- !u!114 &1538087835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14403,21 +14328,6 @@ MonoBehaviour:
   pointOfFire: {fileID: 984127625}
   bulletPrefab: {fileID: 7650465669857403230, guid: fab61289cdf0405409618e75887a26cc,
     type: 3}
---- !u!114 &1538087836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538087831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd4e6b4488a88814c86650244e22b037, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTime: []
-  restartTime: []
-  startTime: 
 --- !u!114 &1538087837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15548,7 +15458,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1698226305}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 60.8, y: -12.300001, z: 62}
+  m_LocalPosition: {x: -63.8, y: -12.300001, z: -64.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1229136812}
@@ -22515,9 +22425,7 @@ GameObject:
   - component: {fileID: 4570244243064637629}
   - component: {fileID: 4570244243064637626}
   - component: {fileID: 4570244243064637637}
-  - component: {fileID: 4570244243064637635}
   - component: {fileID: 4570244243064637633}
-  - component: {fileID: 4570244243064637639}
   - component: {fileID: 4570244243064637641}
   m_Layer: 2
   m_Name: DumbTank
@@ -22556,9 +22464,9 @@ MonoBehaviour:
   startAttackTime: 0
   currentAttackState: 0
   isDead: 0
-  hearingScale: 1
+  hearingScale: 10
   currentAvoidState: 0
-  feelerDistance: 1
+  feelerDistance: 10
   avoidMoveTime: 0
   startAvoidTime: 0
 --- !u!114 &4570244243064637627
@@ -22691,21 +22599,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4570244243064637635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4570244243064637624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd4e6b4488a88814c86650244e22b037, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTime: []
-  restartTime: []
-  startTime: 
 --- !u!1 &4570244243064637636
 GameObject:
   m_ObjectHideFlags: 0
@@ -22755,19 +22648,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4570244243064637639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4570244243064637624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85dc5b13c2d32044789e08282f023a34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerDetected: 0
 --- !u!1 &4570244243064637640
 GameObject:
   m_ObjectHideFlags: 0

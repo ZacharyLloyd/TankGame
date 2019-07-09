@@ -7,7 +7,6 @@ public class AdvancedAiController : AiController
     // Start is called before the first frame update
     void Start()
     {
-        currentWaypoint = 0;
     }
 
     // Update is called once per frame
@@ -17,15 +16,14 @@ public class AdvancedAiController : AiController
     }
     public override void Idle()
     {
-        ChangeState(AIStates.Patrol);
+        if (CanHear(target.transform))
+        {
+            ChangeState(AIStates.Chase);
+        }
         base.Idle();
     }
     public override void Patrol(Transform target)
     {
-        if(CanHear(target.transform))
-        {
-            ChangeState(AIStates.Chase);
-        }
         if(CanSee())
         {
             ChangeAttackState(AIAttackState.Attack);
