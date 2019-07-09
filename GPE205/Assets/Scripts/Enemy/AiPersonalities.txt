@@ -1,0 +1,9 @@
+Ai Personalities
+
+Dumb Ai: This is the basic enemy. It will start in idle. Once the enemy can hear the player it will switch to chase where it will go after the player based on where it heard the player. Once the enemy can see the player it will switch to attacking the player while chasing them at the same time.
+
+Patrol Ai: This is a slightly smarter enemy. It will start in patrol where it will go after the waypoints set on the level. From there at any time during patrol if the enemy can hear the player it will switch from patrol to chase. Once the enemy can see the player it will switch to attack while chasing the player as well.
+
+Advanced Ai: This is a smart enemy. It will start in idle. Once the enemy can hear the player it will chase the player. Once the enemy can see the player it will switch to attack while chasing the player down. The difference with this one is if at any point this enemy's health goes below 50 or is equal to 50 it will stop what it is doing and start fleeing from the player going the opposite direction where the player is located.
+
+Aggresive Ai: This is the aggressive enemy. It starts in the chase state so it always knows where the player is regardless if it can hear the player or not. Once the enemy can see the player it will switch to attack while still chasing the player. This enemy has no fear.
