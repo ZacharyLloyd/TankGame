@@ -9,18 +9,11 @@ public class Shoot : MonoBehaviour
     public Transform pointOfFire;
     public GameObject bulletPrefab;
 
-    /*Keep updating the bulletPrefab and pointOfFire to make sure
-    they are always at the same spot*/
-    private void Update()
-    {
-        bulletPrefab.transform.position = pointOfFire.position;
-        bulletPrefab.transform.rotation = pointOfFire.rotation;
-    }
     /*The TankShoot method causes the bullet to spawn which is then moved 
     by the BulletMover script*/
     public bool TankShoot(GameObject bulletPrefab)
     {
-        Instantiate(bulletPrefab);
+        Instantiate(bulletPrefab, pointOfFire.position, pointOfFire.rotation);
         return true;
     }
     public void InitateEnemyShoot(float secondsUntilShoot)

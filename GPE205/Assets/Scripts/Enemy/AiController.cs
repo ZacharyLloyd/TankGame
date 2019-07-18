@@ -60,6 +60,10 @@ public class AiController : MonoBehaviour
         None,
         Attack
     }
+    private void Start()
+    {
+        shoot = GetComponent<Shoot>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -112,7 +116,10 @@ public class AiController : MonoBehaviour
             case AIAttackState.None:
                 break;
             case AIAttackState.Attack:
-                Attack(target.transform);
+                if (target)
+                {
+                    Attack(target.transform); 
+                }
                 break;
             default:
                 break;
