@@ -34,4 +34,8 @@ public class TankData : MonoBehaviour
             //Do nothing
         }
     }
+    public void Start()
+    {
+        GameManager.instance.tanks.Add(this);
+    }
 }

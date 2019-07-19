@@ -7,7 +7,9 @@ public class GameManager : MonoBehaviour
     //Setting up the singleton
     public static GameManager instance;
     //Used to keep track of the player
-    public List<TankController> players;
+    public List<TankData> tanks;
+    //Keep track of the powerups
+    public List<Powerup> powerups;
     //Used to instanciate the bullet
     public int bulletInstance;
 

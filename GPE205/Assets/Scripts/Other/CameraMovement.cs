@@ -13,7 +13,7 @@ public class CameraMovement : MonoBehaviour
     readonly private bool lookAt = true;
 
     //Finding the player for the camera to follow
-    void Start()
+    void Update()
     {
         target = FindObjectOfType<TurretRotation>().gameObject;
         data = FindObjectOfType<TankData>();

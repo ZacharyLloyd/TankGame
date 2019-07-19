@@ -607,8 +607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e5006a391b667b4fa90a1f9063fe172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorNorth: {fileID: 7884450947948462367}
-  doorSouth: {fileID: 7884450949172486963}
+  doorNorth: {fileID: 7884450949172486963}
+  doorSouth: {fileID: 7884450947948462367}
   doorEast: {fileID: 7884450948264502234}
   doorWest: {fileID: 7884450949288840214}
   waypoints:

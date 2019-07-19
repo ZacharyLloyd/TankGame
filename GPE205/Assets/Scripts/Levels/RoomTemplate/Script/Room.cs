@@ -11,4 +11,9 @@ public class Room : MonoBehaviour
     public List<Transform> waypoints;
     public Transform spawnpoint;
     public Transform powerupSpawnpoint;
+
+    public void Start()
+    {
+        SpawnManager.spawnInstance.SpawnPoints.Add(spawnpoint);
+    }
 }
