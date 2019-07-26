@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6923684109863623486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3461227634229313265}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3461227634229313265
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6923684109863623486}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -48.1, y: -12.389001, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6959793851755605701}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &6959793851982111426
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -326,6 +356,7 @@ Transform:
   - {fileID: 6959793852559530981}
   - {fileID: 6959793852586773415}
   - {fileID: 6959793852654230034}
+  - {fileID: 3461227634229313265}
   - {fileID: 6959793852009544300}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -351,7 +382,9 @@ MonoBehaviour:
   - {fileID: 6959793851596754555}
   - {fileID: 6959793851366173532}
   - {fileID: 6959793852856483697}
-  spawnpoint: {fileID: 6959793852654230034}
+  spawnpoint:
+  - {fileID: 6959793852654230034}
+  - {fileID: 3461227634229313265}
   powerupSpawnpoint: {fileID: 6959793852009544300}
 --- !u!1 &6959793851867742062
 GameObject:
@@ -411,7 +444,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6959793851755605701}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6959793852559530980
 GameObject:
@@ -621,7 +654,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6959793852654230045}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.899994, y: -12.389001, z: 4}
+  m_LocalPosition: {x: 37.1, y: -12.389001, z: -45.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6959793851755605701}

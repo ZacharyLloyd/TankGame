@@ -9,11 +9,14 @@ public class Room : MonoBehaviour
     public GameObject doorEast;
     public GameObject doorWest;
     public List<Transform> waypoints;
-    public Transform spawnpoint;
+    public List<Transform> spawnpoint;
     public Transform powerupSpawnpoint;
 
     public void Start()
     {
-        SpawnManager.spawnInstance.SpawnPoints.Add(spawnpoint);
+        for (int i = 0; i < spawnpoint.Count; i++)
+        {
+            SpawnManager.spawnInstance.SpawnPoints.Add(spawnpoint[i]); 
+        }
     }
 }

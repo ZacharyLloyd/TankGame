@@ -129,6 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 161472470}
+  - component: {fileID: 161472471}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -150,6 +151,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &161472471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161472469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28b028a735d86bd48b925e6c9fdced02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemies:
+  - {fileID: 3336941190438544381, guid: 5a76353da6d8c594db0281dddce9e5bf, type: 3}
+  - {fileID: 5870892361514308677, guid: 10728a24377057a4e9e9e3a2863df409, type: 3}
+  - {fileID: 5597349353430245847, guid: e59eab237b632a44eb5c4084b1fa2e42, type: 3}
+  - {fileID: 7533793832316458068, guid: a8ed00bdd5190ab4b96fdb867fcaa1c2, type: 3}
+  Player: {fileID: 8553460672616019486, guid: a8a9e1d2ac47b6c4ca8a8659e13cef62, type: 3}
+  SpawnPoints: []
+  playerSpawnPoint: 0
+  LevelInfo: {fileID: 0}
+  SpawnPointsUsed: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,6 +273,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 868751744}
+  - component: {fileID: 868751745}
   m_Layer: 0
   m_Name: PickupManager
   m_TagString: Untagged
@@ -271,6 +295,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &868751745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868751743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1586b57dbaffc742ae4d43a95cd64e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PowerupSpawns: []
+  Powerups:
+  - {fileID: 7974773745744412636, guid: fd548ad087bded64ea0974b68137905a, type: 3}
+  powerupSpawnPoint: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.12789099, y: -0, z: -0, w: 0.9917883}
-  m_LocalPosition: {x: -0, y: 169.6, z: -373.3}
+  m_LocalPosition: {x: 0, y: 169.6, z: -373.3}
   m_LocalScale: {x: 0.5065241, y: 0.14125541, z: 0.5065241}
   m_Children: []
   m_Father: {fileID: 0}
@@ -399,7 +439,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1b9ce359ff1be45855c7b4d4376a77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: []
+  tanks: []
+  powerups: []
   bulletInstance: 0
 --- !u!4 &1348772928
 Transform:
@@ -449,6 +490,8 @@ MonoBehaviour:
   - {fileID: 7884450949304121949, guid: 1b0ebc672afaa304f841761d1863aff7, type: 3}
   - {fileID: 6959793851755605700, guid: 409cb77023937b041b976b6c9dac89a8, type: 3}
   - {fileID: 7091348965511611664, guid: 994540e5bfe10bb45918106ba7b5d300, type: 3}
+  spawnPoints: []
+  powerupSpawnPoints: []
   numCols: 2
   numRows: 2
   tileWidth: 150

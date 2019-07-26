@@ -5,6 +5,8 @@ using UnityEngine;
 public class LevelGenerator : MonoBehaviour
 {
     public List<GameObject> roomPrefabs;
+    public List<Transform> spawnPoints;
+    public List<Transform> powerupSpawnPoints;
     public GameObject[,] grid;
 
     public int numCols;
@@ -18,6 +20,9 @@ public class LevelGenerator : MonoBehaviour
     void Start()
     {
         BuildLevel();
+        SendSpawnPoint();
+        SendPowerupSpawnPoint();
+        SpawnManager.spawnInstance.InitialSpawn();
     }
 
     // Update is called once per frame
@@ -51,7 +56,6 @@ public class LevelGenerator : MonoBehaviour
                 // Make it a child of this object
                 tempRoom.GetComponent<Transform>().parent = this.gameObject.GetComponent<Transform>();
 
-                // TODO: Based on it's location, open the appropriate doors
                 Room roomScript = tempRoom.GetComponent<Room>();
                 if (currentCol != 0)
                 {
@@ -72,9 +76,13 @@ public class LevelGenerator : MonoBehaviour
                 {
                     roomScript.doorSouth.SetActive(false);
                 }
+                for (int i = 0; i < tempRoom.GetComponent<Room>().spawnpoint.Count; i++)
+                {
+                    spawnPoints.Add(tempRoom.GetComponent<Room>().spawnpoint[i]); 
+                }
+                powerupSpawnPoints.Add(tempRoom.GetComponent<Room>().powerupSpawnpoint);
             }
         }
-
     }
 
     public void DestroyLevel()
@@ -92,5 +100,19 @@ public class LevelGenerator : MonoBehaviour
     {
         int roomIndex = Random.Range(0, roomPrefabs.Count);
         return roomPrefabs[roomIndex];
+    }
+    public void SendSpawnPoint()
+    {
+        for (int i = 0; i < spawnPoints.Count; i++)
+        {
+            SpawnManager.spawnInstance.SpawnPoints.Add(spawnPoints[i]);
+        }
+    }
+    public void SendPowerupSpawnPoint()
+    {
+        for (int i = 0; i < powerupSpawnPoints.Count; i++)
+        {
+            PowerupManager.powerupInstance.PowerupSpawns.Add(powerupSpawnPoints[i]);
+        }
     }
 }
