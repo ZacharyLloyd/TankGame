@@ -5,19 +5,7 @@ using UnityEngine;
 public class SpeedPickup : MonoBehaviour
 {
     public SpeedPowerup powerup;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    //If collison occurs
     void OnTriggerEnter(Collider other)
     {
         // Get the powerup controller from the object that entered our trigger

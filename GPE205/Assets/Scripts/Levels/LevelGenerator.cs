@@ -10,6 +10,7 @@ public class LevelGenerator : MonoBehaviour
     public List<Transform> powerupSpawnPoints;
     public GameObject[,] grid;
 
+    //Data for the rooms and level
     public int numCols;
     public int numRows;
 
@@ -66,6 +67,7 @@ public class LevelGenerator : MonoBehaviour
                 tempRoom.GetComponent<Transform>().parent = this.gameObject.GetComponent<Transform>();
 
                 Room roomScript = tempRoom.GetComponent<Room>();
+                //Opening up the level
                 if (currentCol != 0)
                 {
                     roomScript.doorWest.SetActive(false);
@@ -93,9 +95,10 @@ public class LevelGenerator : MonoBehaviour
             }
         }
     }
-
+    //Destroy the level
     public void DestroyLevel()
     {
+        //Cycle through the rooms and destroy them
         for (int currentRow = 0; currentRow < numRows; currentRow++)
         {
             for (int currentCol = 0; currentCol < numCols; currentCol++)
@@ -104,28 +107,35 @@ public class LevelGenerator : MonoBehaviour
             }
         }
     }
-
+    //Pick a random room
     private GameObject RandomRoom()
     {
+        //Actually picking the rooms randomly
         int roomIndex = Random.Range(0, roomPrefabs.Count);
         return roomPrefabs[roomIndex];
     }
+    //Send spawn points to spawn manager
     public void SendSpawnPoint()
     {
+        //Cycle through spawn points add them to the list in spawn manager
         for (int i = 0; i < spawnPoints.Count; i++)
         {
             SpawnManager.spawnInstance.SpawnPoints.Add(spawnPoints[i]);
         }
     }
+    //Send powerup spawns to powerup manager
     public void SendPowerupSpawnPoint()
     {
+        //Cycle through the powerup spawn points add them to the list in power up manager
         for (int i = 0; i < powerupSpawnPoints.Count; i++)
         {
             PowerupManager.powerupInstance.PowerupSpawns.Add(powerupSpawnPoints[i]);
         }
     }
+    //Generate a seed
     public int GenerateSeed()
     {
+        //Are we creating the map of the day
         switch (mapOfTheDay)
         {
             case true:
@@ -133,6 +143,7 @@ public class LevelGenerator : MonoBehaviour
                 break;
         }
         var temp = Random.state;
+        //Start the seed generation if there is not one started
         if (!seedGenInitiate)
         {
             Random.InitState(genSeed);
@@ -145,6 +156,7 @@ public class LevelGenerator : MonoBehaviour
         Random.state = temp;
         return generatedSeed;
     }
+    //Generate the map of the day
     public void GenerateMapOfTheDay()
     {
         //Store current time

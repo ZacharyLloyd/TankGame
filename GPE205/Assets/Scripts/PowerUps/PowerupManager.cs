@@ -21,15 +21,17 @@ public class PowerupManager : MonoBehaviour
             SpawnPowerup();
         }
     }
-
+    //Picking a random spawn for the power to spawn at
     private int PickRandomPowerupSpawn()
     {
         return Random.Range(0, PowerupSpawns.Count - 1);
     }
+    //Pick a random powerup
     private int PickRandomPowerup()
     {
         return Random.Range(0, Powerups.Count - 1);
     }
+    //Spawn the power up
     public void SpawnPowerup()
     {
         objectSpawned = Instantiate(Powerups[PickRandomPowerup()], PowerupSpawns[PickRandomPowerupSpawn()]);

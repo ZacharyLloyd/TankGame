@@ -6,18 +6,12 @@ public class PowerupController : MonoBehaviour
 {
     public List<Powerup> powerups;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
         HandlePowerupTimers();
     }
-
+    //Handling the timer for the powerups
     public void HandlePowerupTimers()
     {
         List<Powerup> toBeRemoved = new List<Powerup>();
@@ -44,7 +38,7 @@ public class PowerupController : MonoBehaviour
         }
 
     }
-
+    //Remove the power up
     public void RemovePowerup(Powerup powerup)
     {
         // Call the on remove
@@ -52,7 +46,7 @@ public class PowerupController : MonoBehaviour
         // Remove powerup from list
         powerups.Remove(powerup);
     }
-
+    //Apply the powerup
     public void ApplyPowerup(Powerup powerup)
     {
         // Add powerup to the list, 

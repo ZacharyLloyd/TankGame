@@ -18,26 +18,33 @@ public class SpawnManager : MonoBehaviour
         spawnInstance = this;
         SpawnPointsUsed.Clear();
     }
+    //Starting the spawning
     public void InitialSpawn()
     {
+        //Spawn player first
         SpawnPlayer();
+        //Cycle through enemies and spawn them
         for (int i = 0; i < Enemies.Count; i++)
         {
             SpawnEnemy(Enemies[i]);
         }
     }
+    //Picking the enemy spawn point
     public int PickingEnemySpawn()
     {
         int randomPoint = PickRandomSpawnPoint();
+        //Used to make sure the enemies do not spawn with the player or on a spawn already used
         while (randomPoint == playerSpawnPoint && SpawnPointsUsed.Contains(randomPoint))
         {
                 randomPoint = PickRandomSpawnPoint(); 
         }
         return randomPoint;
     }
+    //Picking a random spawn point
     private int PickRandomSpawnPoint()
     {
         int randomNum = Random.Range(0, SpawnPoints.Count - 1);
+        //If the spawn point is not used add it to the list return to be used
         if (!SpawnPointsUsed.Contains(randomNum))
         {
             SpawnPointsUsed.Add(randomNum);
@@ -45,15 +52,18 @@ public class SpawnManager : MonoBehaviour
         }
         else
         {
+            //If it is used pick another spawn point
             return PickRandomSpawnPoint();
         }
 
     }
+    //Spawn the player
     public void SpawnPlayer()
     {
         playerSpawnPoint = PickRandomSpawnPoint();
         Instantiate(Player, SpawnPoints[playerSpawnPoint].position, SpawnPoints[playerSpawnPoint].rotation);
     }
+    //Spawn the enemy
     public void SpawnEnemy(GameObject enemyToSpawn)
     {
         int randomNum = PickingEnemySpawn();
