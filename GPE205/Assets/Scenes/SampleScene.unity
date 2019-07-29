@@ -496,6 +496,8 @@ MonoBehaviour:
   numRows: 2
   tileWidth: 150
   tileHeight: 150
+  genSeed: 0
+  mapOfTheDay: 0
 --- !u!4 &1509057196
 Transform:
   m_ObjectHideFlags: 0

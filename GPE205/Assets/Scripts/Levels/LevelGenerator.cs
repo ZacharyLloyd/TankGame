@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 public class LevelGenerator : MonoBehaviour
 {
     public List<GameObject> roomPrefabs;
@@ -15,6 +16,14 @@ public class LevelGenerator : MonoBehaviour
     public float tileWidth = 50.0f;
     public float tileHeight = 50.0f;
 
+    //Seed stuff
+    private Random.State seedGenerator;
+    public int genSeed;
+    private bool seedGenInitiate = false;
+
+    //Map of the day stuff
+    public bool mapOfTheDay = false;
+    private DateTime _lastMapOfDay = DateTime.MinValue;
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +43,8 @@ public class LevelGenerator : MonoBehaviour
     private void BuildLevel()
     {
 
-        //TODO:  Seed the random generator
-
+        //Seed the random generator
+        Random.seed = GenerateSeed();
 
         // Create the 2D Array
         grid = new GameObject[numCols, numRows];
@@ -113,6 +122,36 @@ public class LevelGenerator : MonoBehaviour
         for (int i = 0; i < powerupSpawnPoints.Count; i++)
         {
             PowerupManager.powerupInstance.PowerupSpawns.Add(powerupSpawnPoints[i]);
+        }
+    }
+    public int GenerateSeed()
+    {
+        switch (mapOfTheDay)
+        {
+            case true:
+                GenerateMapOfTheDay();
+                break;
+        }
+        var temp = Random.state;
+        if (!seedGenInitiate)
+        {
+            Random.InitState(genSeed);
+            seedGenerator = Random.state;
+            seedGenInitiate = true;
+        }
+        Random.state = seedGenerator;
+        var generatedSeed = Random.Range(int.MinValue, int.MaxValue);
+        seedGenerator = Random.state;
+        Random.state = temp;
+        return generatedSeed;
+    }
+    public void GenerateMapOfTheDay()
+    {
+        //Store current time
+        if(_lastMapOfDay.AddDays(1) > DateTime.Now)
+        {
+            genSeed = DateTime.Now.DayOfYear;
+            _lastMapOfDay = DateTime.Now;
         }
     }
 }
