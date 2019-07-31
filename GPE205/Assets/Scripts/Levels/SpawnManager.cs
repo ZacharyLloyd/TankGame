@@ -8,9 +8,11 @@ public class SpawnManager : MonoBehaviour
     public List<GameObject> Enemies;
     public GameObject Player;
     public List<Transform> SpawnPoints;
+    public List<Transform> Waypoints;
     public int playerSpawnPoint;
     public LevelGenerator LevelInfo;
     public List<int> SpawnPointsUsed;
+    private GameObject spawnedPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -61,12 +63,17 @@ public class SpawnManager : MonoBehaviour
     public void SpawnPlayer()
     {
         playerSpawnPoint = PickRandomSpawnPoint();
-        Instantiate(Player, SpawnPoints[playerSpawnPoint].position, SpawnPoints[playerSpawnPoint].rotation);
+        spawnedPlayer = Instantiate(Player, SpawnPoints[playerSpawnPoint].position, SpawnPoints[playerSpawnPoint].rotation);
     }
     //Spawn the enemy
     public void SpawnEnemy(GameObject enemyToSpawn)
     {
         int randomNum = PickingEnemySpawn();
-        Instantiate(enemyToSpawn, SpawnPoints[randomNum].position, SpawnPoints[randomNum].rotation);
+        GameObject temp = Instantiate(enemyToSpawn, SpawnPoints[randomNum].position, SpawnPoints[randomNum].rotation);
+        temp.GetComponent<AiController>().target = spawnedPlayer.GetComponent<TankData>();
+        for (int i = 0; i < Waypoints.Count; i++)
+        {
+            temp.GetComponent<AiController>().waypoints.Add(Waypoints[i]);
+        }
     }
 }

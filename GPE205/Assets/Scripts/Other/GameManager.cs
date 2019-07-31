@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     //Used to instanciate the bullet
     public int bulletInstance;
 
+
     private void Awake()
     {
         #region Singleton

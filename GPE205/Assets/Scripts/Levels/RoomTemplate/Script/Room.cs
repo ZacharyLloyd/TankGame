@@ -12,11 +12,15 @@ public class Room : MonoBehaviour
     public List<Transform> spawnpoint;
     public Transform powerupSpawnpoint;
 
-    public void Start()
+    public void Awake()
     {
         for (int i = 0; i < spawnpoint.Count; i++)
         {
             SpawnManager.spawnInstance.SpawnPoints.Add(spawnpoint[i]); 
+        }
+        for (int i = 0; i < waypoints.Count; i++)
+        {
+            SpawnManager.spawnInstance.Waypoints.Add(waypoints[i]);
         }
     }
 }

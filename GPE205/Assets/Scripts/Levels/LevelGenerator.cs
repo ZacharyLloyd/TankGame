@@ -45,7 +45,7 @@ public class LevelGenerator : MonoBehaviour
     {
 
         //Seed the random generator
-        Random.seed = GenerateSeed();
+        Random.InitState(GenerateSeed());
 
         // Create the 2D Array
         grid = new GameObject[numCols, numRows];
