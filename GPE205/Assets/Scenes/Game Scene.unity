@@ -596,32 +596,32 @@ MonoBehaviour:
   getAudio:
   - name: Moving
     clip: {fileID: 8300000, guid: ca6018850134c6c4fba54ba536750c18, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     enableLoop: 0
     source: {fileID: 0}
   - name: Shoot
     clip: {fileID: 8300000, guid: 15a3c7936c88ef24db0b4d2b4be9965f, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     enableLoop: 0
     source: {fileID: 0}
   - name: Explosion
     clip: {fileID: 8300000, guid: 993217b9f4914d247a81d62682394753, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     enableLoop: 0
     source: {fileID: 0}
   - name: Death
     clip: {fileID: 8300000, guid: 03007e7682803f547893635034487925, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     enableLoop: 0
     source: {fileID: 0}
   - name: Powerup
     clip: {fileID: 8300000, guid: cdc520b8c61711b47a4966b909b63f11, type: 3}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     enableLoop: 0
     source: {fileID: 0}
 --- !u!4 &1180025353

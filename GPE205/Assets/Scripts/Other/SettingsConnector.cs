@@ -33,6 +33,7 @@ public class SettingsConnector : MonoBehaviour
         SendSettingsData();
         Settings.settingsInstance.LoadSettings();
     }
+    //Sending the data to the settings where they can update the ui
     public void SendSettingsData()
     {
         Settings.settingsInstance.isMulitplayerEnabled = isMulitplayerEnabled;
@@ -43,33 +44,40 @@ public class SettingsConnector : MonoBehaviour
         Settings.settingsInstance.sfxVolume = sfxVolume;
         Settings.settingsInstance.seed = seed;
     }
+    //The the settings in the connector
     public void SaveSettings()
     {
+        //Send the data to the settings
         SendSettingsData();
+        //Save the new settings
         Settings.settingsInstance.SaveSettings();
     }
+    //Set the multiplayer variable to be passed on
     public void SetMultiplayerEnabled(bool multiplayerEnabled)
     {
         isMulitplayerEnabled = multiplayerEnabled;
     }
-    //Set the music volume
+    //Set the music volume to th variable to be passed on
     public void SetMusicVolume(float newMusicVolume)
     {
         musicVolume = newMusicVolume;
     }
-    //Set the SFX volume
+    //Set the SFX volume to the variable to be passed on
     public void SetSfxVolume(float newSfxVolume)
     {
         sfxVolume = newSfxVolume;
     }
+    //Set the map of the day variable to be passed on
     public void SetMapOfTheDay(bool motd)
     {
         isMapOfTheDay = motd;
     }
+    //Set the random map variable to be passed on
     public void SetRandomMap(bool random)
     {
         isMapRandom = random;
     }
+    //Set the seed map variable to be passed on
     public void SetSeedMap(bool seeded)
     {
         isMapSeeded = seeded;

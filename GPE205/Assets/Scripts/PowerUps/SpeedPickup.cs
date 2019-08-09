@@ -13,6 +13,8 @@ public class SpeedPickup : MonoBehaviour
         // If it is NOT null
         if (tempPUC != null)
         {
+            //Play pickup noise
+            AudioManager.mastersounds.Play("Powerup");
             // Tell to apply the powerup on this object
             tempPUC.ApplyPowerup(powerup);
 

@@ -57,6 +57,8 @@ public class BulletMover : MonoBehaviour
         if (collide.GetComponent<TankData>() != null)
         {
             collide.GetComponent<TankData>().health -= data.damage;
+            //Play explosion noise when colliding with player or enemy
+            AudioManager.mastersounds.Play("Explosion");
         }
         Destroy(this.gameObject);
 

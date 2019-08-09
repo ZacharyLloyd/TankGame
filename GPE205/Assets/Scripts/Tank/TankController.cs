@@ -71,6 +71,11 @@ public class TankController : MonoBehaviour
                 shoot.TankShoot(shoot.bulletPrefab);
             }
         }
+        //If you press escape while playing quit the game
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     private void WasdControls()

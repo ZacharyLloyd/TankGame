@@ -14,6 +14,8 @@ public class Shoot : MonoBehaviour
     public bool TankShoot(GameObject bulletPrefab)
     {
         Instantiate(bulletPrefab, pointOfFire.position, pointOfFire.rotation);
+        //Play the shoot sound
+        AudioManager.mastersounds.Play("Shoot");
         return true;
     }
     public void InitateEnemyShoot(float secondsUntilShoot)
@@ -22,6 +24,8 @@ public class Shoot : MonoBehaviour
         if(timer.currentTime[2] > secondsUntilShoot)
         {
             TankShoot(bulletPrefab.gameObject);
+            //Play the shoot sound
+            AudioManager.mastersounds.Play("Shoot");
             timer.ResetTime(2, false);
         }
     }

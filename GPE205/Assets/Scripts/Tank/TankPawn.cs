@@ -21,6 +21,8 @@ public class TankPawn : MonoBehaviour
     {
         if(data.health <= 0)
         {
+            //Play the death sound before getting destroyed
+            AudioManager.mastersounds.Play("Death");
             Destroy(gameObject);
         }
 
