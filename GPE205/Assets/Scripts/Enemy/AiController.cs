@@ -67,6 +67,10 @@ public class AiController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (target == null)
+        {
+            target = FindObjectOfType<ImmaPlayer>().gameObject.GetComponent<TankData>();
+        }
         if(!isDead)
         {
             AiMain();
@@ -282,7 +286,7 @@ public class AiController : MonoBehaviour
     {
         Vector3 targetVector = (target.position - pawn.bodytf.position).normalized;
         pawn.mover.RotateTowards(targetVector);
-        pawn.mover.Move(Vector3.forward * pawn.moveSpeed);
+        pawn.mover.Move(Vector3.forward);
     }
     public virtual void Attack(Transform target)
     {

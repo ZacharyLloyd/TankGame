@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +15,11 @@ public class GameManager : MonoBehaviour
     public List<Powerup> powerups;
     //Used to instanciate the bullet
     public int bulletInstance;
+
+    //Setting the destination of where to go next in the game
+    [Header("Destination")]
+    public string sceneName; //Scene/level name
+
 
 
     private void Awake()
@@ -29,11 +37,13 @@ public class GameManager : MonoBehaviour
         } 
         #endregion
     }
-    private void Update()
+    //This is used for switching scenes/levels
+    public void Goto_Scene(string scene_name)
     {
+        if (scene_name != null) SceneManager.LoadScene(scene_name);
     }
-    private void Start()
+    public void SettingCameras()
     {
-        
+
     }
 }

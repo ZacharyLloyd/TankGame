@@ -160,7 +160,7 @@ public class LevelGenerator : MonoBehaviour
     public void GenerateMapOfTheDay()
     {
         //Store current time
-        if(_lastMapOfDay.AddDays(1) > DateTime.Now)
+        if(_lastMapOfDay.AddDays(1) >= DateTime.Now)
         {
             genSeed = DateTime.Now.DayOfYear;
             _lastMapOfDay = DateTime.Now;

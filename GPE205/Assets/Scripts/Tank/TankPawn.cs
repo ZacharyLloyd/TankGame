@@ -32,7 +32,7 @@ public class TankPawn : MonoBehaviour
         this way (0,0,1 becomes the player's foward)*/
         Vector3 directionToMove = data.bodytf.TransformDirection(worldDirectionToMove);
         //This is where the player would actually move
-        characterController.SimpleMove(directionToMove * (data.moveSpeed * Time.deltaTime));
+        characterController.SimpleMove(directionToMove * (data.moveSpeed));
     }
     public void Rotate (float direction)
     {

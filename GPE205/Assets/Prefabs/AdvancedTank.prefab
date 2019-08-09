@@ -1759,8 +1759,8 @@ MonoBehaviour:
   turrettf: {fileID: 5597349353430245850}
   mover: {fileID: 5597349353430245841}
   turretRotation: {fileID: 0}
-  moveSpeed: 10
-  reverseMoveSpeed: 10
+  moveSpeed: 5
+  reverseMoveSpeed: 20
   shotsPerSecond: 1
   rotateSpeed: 50
   turretRotateSpeed: 0
@@ -1847,9 +1847,9 @@ MonoBehaviour:
   startAttackTime: 0
   currentAttackState: 0
   isDead: 0
-  hearingScale: 10
+  hearingScale: 20
   currentAvoidState: 0
-  feelerDistance: 10
+  feelerDistance: 25
   avoidMoveTime: 0
   startAvoidTime: 0
 --- !u!1 &5597349353473856799

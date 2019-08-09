@@ -14,7 +14,6 @@ public class TankData : MonoBehaviour
     //All the variables that are tied to the tank
     [Header("Variables")]
     public float moveSpeed;
-    public float reverseMoveSpeed;
     public float shotsPerSecond;
     public float rotateSpeed;
     public float turretRotateSpeed;
