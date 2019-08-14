@@ -9,6 +9,7 @@ public class PowerupManager : MonoBehaviour
     public List<GameObject> Powerups; //List for powerups
     public int powerupSpawnPoint; //Where the powerup will spawn
     private GameObject objectSpawned;
+    public Vector3 offset;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class PowerupManager : MonoBehaviour
     //Spawn the power up
     public void SpawnPowerup()
     {
-        objectSpawned = Instantiate(Powerups[PickRandomPowerup()], PowerupSpawns[PickRandomPowerupSpawn()]);
+        Transform randomSpawnPoint = PowerupSpawns[PickRandomPowerupSpawn()];
+        objectSpawned = Instantiate(Powerups[PickRandomPowerup()], randomSpawnPoint.position + offset, randomSpawnPoint.rotation);
     }
 }

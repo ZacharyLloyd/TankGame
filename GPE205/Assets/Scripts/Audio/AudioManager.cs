@@ -17,7 +17,7 @@ public class AudioManager : MonoBehaviour
             a.source = gameObject.AddComponent<AudioSource>();
             a.source.clip = a.clip;
 
-            a.source.volume = a.volume;
+            a.source.volume = Settings.settingsInstance.sfxVolume;
             a.source.pitch = a.pitch;
             a.source.loop = a.enableLoop;
         }
@@ -35,5 +35,15 @@ public class AudioManager : MonoBehaviour
         Audio a = Array.Find(getAudio, sound => sound.name == name);
         if (a == null) { Debug.LogWarning("Sound name " + name + " was not found"); return; }
         a.source.Stop();
+    }
+    public bool IsPlaying(string name)
+    {
+        Audio a = Array.Find(getAudio, sound => sound.name == name);
+        if (a == null) { Debug.LogWarning("Sound name " + name + " was not found"); return false; }
+        if (a.source.isPlaying)
+        {
+            return true;
+        }
+        return false;
     }
 }

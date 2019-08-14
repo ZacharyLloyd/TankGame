@@ -38,10 +38,6 @@ public class Settings : MonoBehaviour
         #endregion
         LoadSettings();
     }
-    private void OnApplicationQuit()
-    {
-        SaveSettings();
-    }
     //Save the settings using player prefs
     public void SaveSettings()
     {
@@ -86,7 +82,7 @@ public class Settings : MonoBehaviour
         //Sfx volume save
         PlayerPrefs.SetFloat("SFX Volume", sfxVolume);
         //Seed number save
-        PlayerPrefs.SetInt("Seed", int.Parse(seedNumber.text));
+        PlayerPrefs.SetInt("Seed", int.Parse(seedNumber.text.ToString()));
         //Save everything
         PlayerPrefs.Save();
     }
@@ -142,11 +138,20 @@ public class Settings : MonoBehaviour
     public void UpdateUI()
     {
         //Update value set to music volume
-        musicSlider.value = musicVolume;
+        if (musicSlider != null)
+        {
+            musicSlider.value = musicVolume; 
+        }
         //Update value set to sfx value
-        sfxSlider.value = sfxVolume;
+        if (sfxSlider != null)
+        {
+            sfxSlider.value = sfxVolume; 
+        }
         //Update text to seed value
-        seedNumber.text = seed.ToString();
+        if (seedNumber != null)
+        {
+            seedNumber.text = seed.ToString(); 
+        }
         //Update Multiplayer toggle
         if (PlayerPrefs.GetInt("Multiplayer") == 1)
         {
@@ -155,7 +160,10 @@ public class Settings : MonoBehaviour
         {
             isMulitplayerEnabled = false;
         }
-        multiplayerToggle.isOn = isMulitplayerEnabled;
+        if (multiplayerToggle != null)
+        {
+            multiplayerToggle.isOn = isMulitplayerEnabled; 
+        }
         //Update map of the day toggle
         if(PlayerPrefs.GetInt("Motd") == 1)
         {
@@ -165,7 +173,10 @@ public class Settings : MonoBehaviour
         {
             isMapOfTheDay = false;
         }
-        mapOfTheDay.isOn = isMapOfTheDay;
+        if (mapOfTheDay != null)
+        {
+            mapOfTheDay.isOn = isMapOfTheDay; 
+        }
         //Update random map toggle
         if(PlayerPrefs.GetInt("Random") == 1)
         {
@@ -175,7 +186,10 @@ public class Settings : MonoBehaviour
         {
             isMapRandom = false;
         }
-        randomMap.isOn = isMapRandom;
+        if (randomMap != null)
+        {
+            randomMap.isOn = isMapRandom; 
+        }
         //Update seed map toggle
         if(PlayerPrefs.GetInt("SeedMap") == 1)
         {
@@ -185,6 +199,9 @@ public class Settings : MonoBehaviour
         {
             isMapSeeded = false;
         }
-        seedMap.isOn = isMapSeeded;
+        if (seedMap != null)
+        {
+            seedMap.isOn = isMapSeeded; 
+        }
     }
 }

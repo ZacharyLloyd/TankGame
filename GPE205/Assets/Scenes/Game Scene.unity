@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.46169513, g: 0.5124164, b: 0.58993304, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -466,6 +466,7 @@ MonoBehaviour:
   Powerups:
   - {fileID: 7974773745744412636, guid: fd548ad087bded64ea0974b68137905a, type: 3}
   powerupSpawnPoint: 0
+  offset: {x: 0, y: 2, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,8 +745,6 @@ MonoBehaviour:
   numRows: 2
   tileWidth: 150
   tileHeight: 150
-  genSeed: 0
-  mapOfTheDay: 0
 --- !u!4 &1509057196
 Transform:
   m_ObjectHideFlags: 0

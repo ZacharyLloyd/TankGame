@@ -8,6 +8,7 @@ public class SpeedPickup : MonoBehaviour
     //If collison occurs
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Pick up found");
         // Get the powerup controller from the object that entered our trigger
         PowerupController tempPUC = other.GetComponent<PowerupController>();
         // If it is NOT null

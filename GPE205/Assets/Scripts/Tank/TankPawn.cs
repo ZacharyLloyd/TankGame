@@ -35,6 +35,11 @@ public class TankPawn : MonoBehaviour
         Vector3 directionToMove = data.bodytf.TransformDirection(worldDirectionToMove);
         //This is where the player would actually move
         characterController.SimpleMove(directionToMove * (data.moveSpeed));
+        if (AudioManager.mastersounds.IsPlaying("Moving") == false )
+        {
+            AudioManager.mastersounds.Play("Moving");
+        }
+            
     }
     public void Rotate (float direction)
     {

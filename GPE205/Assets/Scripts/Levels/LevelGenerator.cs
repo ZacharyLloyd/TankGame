@@ -17,15 +17,6 @@ public class LevelGenerator : MonoBehaviour
     public float tileWidth = 50.0f;
     public float tileHeight = 50.0f;
 
-    //Seed stuff
-    private Random.State seedGenerator;
-    public int genSeed;
-    private bool seedGenInitiate = false;
-
-    //Map of the day stuff
-    public bool mapOfTheDay = false;
-    private DateTime _lastMapOfDay = DateTime.MinValue;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -34,19 +25,21 @@ public class LevelGenerator : MonoBehaviour
         SendPowerupSpawnPoint();
         SpawnManager.spawnInstance.InitialSpawn();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void BuildLevel()
     {
+        if(Settings.settingsInstance.isMapOfTheDay == true)
+        {
+            int now = GenerateMapOfTheDay();
+            Random.InitState(now);
+        }
+        else if(Settings.settingsInstance.isMapRandom == true)
+        {
 
-        //Seed the random generator
-        Random.InitState(GenerateSeed());
-
+        }
+        else if(Settings.settingsInstance.isMapSeeded == true)
+        {
+            Random.InitState(Settings.settingsInstance.seed);
+        }
         // Create the 2D Array
         grid = new GameObject[numCols, numRows];
 
@@ -95,18 +88,6 @@ public class LevelGenerator : MonoBehaviour
             }
         }
     }
-    //Destroy the level
-    public void DestroyLevel()
-    {
-        //Cycle through the rooms and destroy them
-        for (int currentRow = 0; currentRow < numRows; currentRow++)
-        {
-            for (int currentCol = 0; currentCol < numCols; currentCol++)
-            {
-                Destroy(grid[currentCol, currentRow]);
-            }
-        }
-    }
     //Pick a random room
     private GameObject RandomRoom()
     {
@@ -132,38 +113,14 @@ public class LevelGenerator : MonoBehaviour
             PowerupManager.powerupInstance.PowerupSpawns.Add(powerupSpawnPoints[i]);
         }
     }
-    //Generate a seed
-    public int GenerateSeed()
-    {
-        //Are we creating the map of the day
-        switch (mapOfTheDay)
-        {
-            case true:
-                GenerateMapOfTheDay();
-                break;
-        }
-        var temp = Random.state;
-        //Start the seed generation if there is not one started
-        if (!seedGenInitiate)
-        {
-            Random.InitState(genSeed);
-            seedGenerator = Random.state;
-            seedGenInitiate = true;
-        }
-        Random.state = seedGenerator;
-        var generatedSeed = Random.Range(int.MinValue, int.MaxValue);
-        seedGenerator = Random.state;
-        Random.state = temp;
-        return generatedSeed;
-    }
     //Generate the map of the day
-    public void GenerateMapOfTheDay()
+    public int GenerateMapOfTheDay()
     {
-        //Store current time
-        if(_lastMapOfDay.AddDays(1) >= DateTime.Now)
-        {
-            genSeed = DateTime.Now.DayOfYear;
-            _lastMapOfDay = DateTime.Now;
-        }
+        string day = DateTime.Now.Day.ToString();
+        string month = DateTime.Now.Month.ToString();
+        string year = DateTime.Now.Year.ToString();
+        string nowSeed = day + month + year;
+        int currentSeed = int.Parse(nowSeed);
+        return currentSeed;
     }
 }
