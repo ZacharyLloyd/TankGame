@@ -73,6 +73,7 @@ public class SpawnManager : MonoBehaviour
         GameManager.instance.P1 = spawnedPlayer[0];
         //Set the players control scheme
         spawnedPlayer[0].GetComponentInChildren<TankController>().controlScheme = TankController.ControlScheme.WASD;
+        //Save the player one's spawn to respawn upon death
         spawnedPlayer[0].GetComponent<TankData>().spawnLocation = SpawnPoints[playerSpawnPoint].position;
         //Set the player's camera
         cam1.gameObject.GetComponent<CameraMovement>().targetToFollow = spawnedPlayer[0].GetComponentInChildren<TurretRotation>();
@@ -85,6 +86,7 @@ public class SpawnManager : MonoBehaviour
             GameManager.instance.P2 = spawnedPlayer[1];
             //Give the second player a control scheme
             spawnedPlayer[1].GetComponentInChildren<TankController>().controlScheme = TankController.ControlScheme.NumberKeys;
+            //Save player two's spawn point for respawning upon death
             spawnedPlayer[1].GetComponent<TankData>().spawnLocation = SpawnPoints[playerSpawnPoint].position;
             //Give the second player a camera
             cam2.gameObject.GetComponent<CameraMovement>().targetToFollow = spawnedPlayer[1].GetComponentInChildren<TurretRotation>();
@@ -106,7 +108,7 @@ public class SpawnManager : MonoBehaviour
         else
         {
             //Pick a random number
-            int rand = Random.Range(0, 1);
+            int rand = Random.Range(0, 2);
             //For player two
             if (rand == 1)
             {

@@ -56,12 +56,7 @@ public class GameManager : MonoBehaviour
     {
         if (scene_name != null) SceneManager.LoadScene(scene_name);
     }
-    public void SettingCameras()
-    {
-
-    }
-
-    public void checkGameOver()
+    public void CheckGameOver()
     {
         if (P1 == null && P2 == null)
         {
@@ -80,5 +75,19 @@ public class GameManager : MonoBehaviour
         // This will wait for a number of seconds before returning to main menu
         yield return new WaitForSeconds(gameOverDelay);
         SceneManager.LoadScene("Menu");
+    }
+    public void CheckWin()
+    {
+        if(tanks.Count == 1)
+        {
+            Debug.Log("You won");
+            // Win
+            // display game over UI screen.
+            // This is awesome!
+            // Do this by setting game over screen 
+            // (canvas gameObject).setActive(true) << General code to use
+            // Them run a coroutine to delay the return to main menu
+            StartCoroutine(Delay());
+        }
     }
 }

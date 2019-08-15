@@ -22,8 +22,6 @@ public class TankData : MonoBehaviour
     public float maxDamage;
     public float health;
     public float maxHealth;
-    public float startShootTime;
-    public float shootAgainTime;
     public Vector3 spawnLocation;
     public int numLives;
 

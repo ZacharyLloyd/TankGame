@@ -28,9 +28,11 @@ public class TankPawn : MonoBehaviour
             {
                 data.numLives -= 1;
                 transform.position = data.spawnLocation;
+                data.health = data.maxHealth;
             }
             else
             {
+                GameManager.instance.tanks.Remove(this.gameObject.GetComponent<TankData>());
                 Destroy(gameObject);
             }
         }

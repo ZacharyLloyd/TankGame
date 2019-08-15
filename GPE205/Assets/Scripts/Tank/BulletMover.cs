@@ -53,29 +53,14 @@ public class BulletMover : MonoBehaviour
             {
                 if (GameManager.instance.P1.GetComponent<Collider>() == owner.GetComponent<Collider>())
                 {
-                    Debug.Log("player one adding score");
                     GameManager.instance.P1score += GameManager.instance.score; 
                 }
                 else if(GameManager.instance.P2.GetComponent<Collider>() == owner.GetComponent<Collider>())
                 {
-                    Debug.Log("Player two adding score");
                     GameManager.instance.P2score += GameManager.instance.score;
                 }
             }
         }
         Destroy(this.gameObject);
-
-        //if (collide.gameObject.tag == "Rock")
-        //    Destroy(this.gameObject);
-        //if (collide.gameObject.tag == "Player")
-        //{
-        //    GameManager.instance.DecreaseHealth(data.damage);
-        //    Destroy(this.gameObject);
-        //}
-        //if (collide.gameObject.tag == "Enemy" )
-        //{
-        //    GameManager.instance.DecreaseHealth(data.damage);
-        //    Destroy(this.gameObject);
-        //}
     }
 }

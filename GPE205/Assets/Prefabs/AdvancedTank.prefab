@@ -1760,16 +1760,16 @@ MonoBehaviour:
   mover: {fileID: 5597349353430245841}
   turretRotation: {fileID: 0}
   moveSpeed: 5
-  reverseMoveSpeed: 20
-  shotsPerSecond: 1
+  shotsPerSecondCurrent: 0
+  shotsPerSecondMax: 1
   rotateSpeed: 50
   turretRotateSpeed: 0
   damage: 50
   maxDamage: 50
   health: 100
   maxHealth: 100
-  startShootTime: 0
-  shootAgainTime: 0
+  spawnLocation: {x: 0, y: 0, z: 0}
+  numLives: 0
 --- !u!114 &5597349353430245841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1795,6 +1795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4b7d88bbcb58c4da43bb3a3151f3ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 5597349353430245854}
   timer: {fileID: 5597349353430245855}
   pointOfFire: {fileID: 5597349354445874682}
   bulletPrefab: {fileID: 7650465669857403230, guid: fab61289cdf0405409618e75887a26cc,

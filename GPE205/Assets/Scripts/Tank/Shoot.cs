@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    public TankData data;
     public Timer timer;
     //Setting a reference to access properties and methods from other scripts
     public Transform pointOfFire;
@@ -22,13 +23,12 @@ public class Shoot : MonoBehaviour
     }
     public void InitateEnemyShoot(float secondsUntilShoot)
     {
-        timer.StartTimer(2);
-        if(timer.currentTime[2] > secondsUntilShoot)
+        if(data.shotsPerSecondCurrent <= 0)
         {
             TankShoot(bulletPrefab.gameObject);
             //Play the shoot sound
             AudioManager.mastersounds.Play("Shoot");
-            timer.ResetTime(2, false);
+            data.shotsPerSecondCurrent = data.shotsPerSecondMax;
         }
     }
 }
