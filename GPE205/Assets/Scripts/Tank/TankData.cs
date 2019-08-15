@@ -14,7 +14,8 @@ public class TankData : MonoBehaviour
     //All the variables that are tied to the tank
     [Header("Variables")]
     public float moveSpeed;
-    public float shotsPerSecond;
+    public float shotsPerSecondCurrent;
+    public float shotsPerSecondMax;
     public float rotateSpeed;
     public float turretRotateSpeed;
     public float damage;
@@ -23,6 +24,8 @@ public class TankData : MonoBehaviour
     public float maxHealth;
     public float startShootTime;
     public float shootAgainTime;
+    public Vector3 spawnLocation;
+    public int numLives;
 
     public void Awake()
     {
@@ -36,5 +39,16 @@ public class TankData : MonoBehaviour
     public void Start()
     {
         GameManager.instance.tanks.Add(this);
+    }
+    private void Update()
+    {
+        if (shotsPerSecondCurrent >= 0)
+        {
+            shotsPerSecondCurrent -= Time.deltaTime;
+        }
+        else if (shotsPerSecondCurrent <= 0)
+        {
+            shotsPerSecondCurrent = 0;
+        }
     }
 }

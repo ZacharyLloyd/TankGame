@@ -290,7 +290,7 @@ public class AiController : MonoBehaviour
     }
     public virtual void Attack(Transform target)
     {
-        shoot.InitateEnemyShoot(pawn.shotsPerSecond);
+        shoot.InitateEnemyShoot(pawn.shotsPerSecondCurrent);
     }
     public virtual void Dead()
     {

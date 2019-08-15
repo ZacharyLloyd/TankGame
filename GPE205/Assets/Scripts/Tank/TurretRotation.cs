@@ -15,12 +15,6 @@ public class TurretRotation : MonoBehaviour
         tf = GetComponentInParent<Transform>();
         data = GetComponentInParent<TankData>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     /*This is where the turret rotates by passing in a direction
     to calculate which way to rotate. It grabs the turrettf from TankData
     to rotate from there. The rotation happens by multiplying the direction by the

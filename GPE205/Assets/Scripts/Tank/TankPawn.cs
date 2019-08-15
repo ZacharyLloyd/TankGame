@@ -23,9 +23,17 @@ public class TankPawn : MonoBehaviour
         {
             //Play the death sound before getting destroyed
             AudioManager.mastersounds.Play("Death");
-            Destroy(gameObject);
+            // Reset position to spawn position
+            if (data.numLives > 0)
+            {
+                data.numLives -= 1;
+                transform.position = data.spawnLocation;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-
     }
 
     public void Move (Vector3 worldDirectionToMove)

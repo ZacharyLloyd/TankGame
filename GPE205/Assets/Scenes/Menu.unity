@@ -1064,7 +1064,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tanks: []
   powerups: []
-  bulletInstance: 0
+  playerLives: 3
+  P1: {fileID: 0}
+  P1score: 0
+  P2: {fileID: 0}
+  P2score: 0
+  score: 50
+  gameOverDelay: 3
   sceneName: 
 --- !u!4 &1348772928
 Transform:

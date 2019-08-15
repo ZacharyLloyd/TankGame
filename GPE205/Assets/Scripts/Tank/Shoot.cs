@@ -13,7 +13,9 @@ public class Shoot : MonoBehaviour
     by the BulletMover script*/
     public bool TankShoot(GameObject bulletPrefab)
     {
-        Instantiate(bulletPrefab, pointOfFire.position, pointOfFire.rotation);
+        var mybullet = Instantiate(bulletPrefab, pointOfFire.position, pointOfFire.rotation);
+        mybullet.GetComponent<BulletMover>().owner = this.GetComponentInParent<TankData>().gameObject;
+        mybullet.GetComponent<BulletMover>().data = this.GetComponentInParent<TankData>();
         //Play the shoot sound
         AudioManager.mastersounds.Play("Shoot");
         return true;

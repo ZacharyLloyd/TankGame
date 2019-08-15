@@ -7,22 +7,17 @@ public class BulletMover : MonoBehaviour
     //Setting references to access other properties and methods
     public TankData data;
     public Transform tf;
-    public Shoot shoot;
     //These are properties used in this script
     public float destroyDuration;
     public float bulletSpeed;
+    public GameObject owner;
     //Find objects and instaniate the bullet
-    private void Awake()
-    {
-        shoot = FindObjectOfType<Shoot>();
-        data = FindObjectOfType<TankData>();
-        GameManager.instance.bulletInstance++;
-    }
+
     // Start is called before the first frame update
     void Start()
     {
         //destroyDuration is set to shotsPerSecond
-        destroyDuration = data.shotsPerSecond;
+        destroyDuration = data.shotsPerSecondCurrent;
     }
 
     // Update is called once per frame
@@ -45,12 +40,7 @@ public class BulletMover : MonoBehaviour
     {
         Destroy(this.gameObject, destroyDuration);
     }
-    /*If the bullet is destroy take away the instance of
-    it that was created*/
-    private void OnDestroy()
-    {
-        GameManager.instance.bulletInstance--;
-    }
+    
     //If the bullet hits a collider tagged with rock destroy the bullet
     private void OnTriggerEnter(Collider collide)
     {
@@ -59,6 +49,19 @@ public class BulletMover : MonoBehaviour
             collide.GetComponent<TankData>().health -= data.damage;
             //Play explosion noise when colliding with player or enemy
             AudioManager.mastersounds.Play("Explosion");
+            if(collide.GetComponent<TankData>().health <= 0)
+            {
+                if (GameManager.instance.P1.GetComponent<Collider>() == owner.GetComponent<Collider>())
+                {
+                    Debug.Log("player one adding score");
+                    GameManager.instance.P1score += GameManager.instance.score; 
+                }
+                else if(GameManager.instance.P2.GetComponent<Collider>() == owner.GetComponent<Collider>())
+                {
+                    Debug.Log("Player two adding score");
+                    GameManager.instance.P2score += GameManager.instance.score;
+                }
+            }
         }
         Destroy(this.gameObject);
 

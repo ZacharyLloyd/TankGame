@@ -66,9 +66,10 @@ public class TankController : MonoBehaviour
         //If the Up arrow key is down, 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if (GameManager.instance.bulletInstance != 1)
+            if (pawn.shotsPerSecondCurrent <= 0)
             {
                 shoot.TankShoot(shoot.bulletPrefab);
+                pawn.shotsPerSecondCurrent = pawn.shotsPerSecondMax;
             }
         }
         //If you press escape while playing quit the game
@@ -117,9 +118,10 @@ public class TankController : MonoBehaviour
         //If the space key is down, 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (GameManager.instance.bulletInstance != 1)
+            if (pawn.shotsPerSecondCurrent <= 0)
             {
                 shoot.TankShoot(shoot.bulletPrefab);
+                pawn.shotsPerSecondCurrent = pawn.shotsPerSecondMax;
             }
         }
         //Quit from inside the game scene

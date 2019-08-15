@@ -3087,7 +3087,8 @@ MonoBehaviour:
   mover: {fileID: 8553460672065135563}
   turretRotation: {fileID: 8553460671854804104}
   moveSpeed: 25
-  shotsPerSecond: 2
+  shotsPerSecondCurrent: 0
+  shotsPerSecondMax: 1
   rotateSpeed: 50
   turretRotateSpeed: 50
   damage: 50
@@ -3096,6 +3097,8 @@ MonoBehaviour:
   maxHealth: 100
   startShootTime: 0
   shootAgainTime: 0
+  spawnLocation: {x: 0, y: 0, z: 0}
+  numLives: 3
 --- !u!114 &8553460672616019487
 MonoBehaviour:
   m_ObjectHideFlags: 0

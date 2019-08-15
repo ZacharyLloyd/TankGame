@@ -69,8 +69,11 @@ public class SpawnManager : MonoBehaviour
         playerSpawnPoint = PickRandomSpawnPoint();
         //Actually spawn the player
         spawnedPlayer.Add(Instantiate(Player, SpawnPoints[playerSpawnPoint].position, SpawnPoints[playerSpawnPoint].rotation));
+        //Add player one to GameManager
+        GameManager.instance.P1 = spawnedPlayer[0];
         //Set the players control scheme
         spawnedPlayer[0].GetComponentInChildren<TankController>().controlScheme = TankController.ControlScheme.WASD;
+        spawnedPlayer[0].GetComponent<TankData>().spawnLocation = SpawnPoints[playerSpawnPoint].position;
         //Set the player's camera
         cam1.gameObject.GetComponent<CameraMovement>().targetToFollow = spawnedPlayer[0].GetComponentInChildren<TurretRotation>();
         //Are we playing multiplayer?
@@ -78,8 +81,11 @@ public class SpawnManager : MonoBehaviour
         {
             //Spawn the second player
             spawnedPlayer.Add(Instantiate(Player, SpawnPoints[playerSpawnPoint].position, SpawnPoints[playerSpawnPoint].rotation));
+            //Add player two to GameManager
+            GameManager.instance.P2 = spawnedPlayer[1];
             //Give the second player a control scheme
             spawnedPlayer[1].GetComponentInChildren<TankController>().controlScheme = TankController.ControlScheme.NumberKeys;
+            spawnedPlayer[1].GetComponent<TankData>().spawnLocation = SpawnPoints[playerSpawnPoint].position;
             //Give the second player a camera
             cam2.gameObject.GetComponent<CameraMovement>().targetToFollow = spawnedPlayer[1].GetComponentInChildren<TurretRotation>();
         }
