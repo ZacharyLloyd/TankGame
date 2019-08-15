@@ -33,6 +33,9 @@ public class TankPawn : MonoBehaviour
             else
             {
                 GameManager.instance.tanks.Remove(this.gameObject.GetComponent<TankData>());
+                data.isDead = true;
+                GameManager.instance.CheckWin();
+                GameManager.instance.CheckGameOver();
                 Destroy(gameObject);
             }
         }

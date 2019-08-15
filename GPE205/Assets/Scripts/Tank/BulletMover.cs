@@ -51,14 +51,21 @@ public class BulletMover : MonoBehaviour
             AudioManager.mastersounds.Play("Explosion");
             if(collide.GetComponent<TankData>().health <= 0)
             {
-                if (GameManager.instance.P1.GetComponent<Collider>() == owner.GetComponent<Collider>())
-                {
-                    GameManager.instance.P1score += GameManager.instance.score; 
-                }
-                else if(GameManager.instance.P2.GetComponent<Collider>() == owner.GetComponent<Collider>())
-                {
-                    GameManager.instance.P2score += GameManager.instance.score;
-                }
+                    if (GameManager.instance.P1 != null)
+                    {
+                        if (GameManager.instance.P1.GetComponent<Collider>() == owner.GetComponent<Collider>())
+                        {
+                            GameManager.instance.P1score += GameManager.instance.score;
+                        } 
+                    }
+                    if (GameManager.instance.P2 != null)
+                    {   
+                        if (GameManager.instance.P2.GetComponent<Collider>() == owner.GetComponent<Collider>())
+                        {
+                            GameManager.instance.P2score += GameManager.instance.score;
+                        }  
+                    }
+		                
             }
         }
         Destroy(this.gameObject);

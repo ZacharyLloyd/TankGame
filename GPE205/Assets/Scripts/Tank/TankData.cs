@@ -24,6 +24,7 @@ public class TankData : MonoBehaviour
     public float maxHealth;
     public Vector3 spawnLocation;
     public int numLives;
+    public bool isDead;
 
     public void Awake()
     {

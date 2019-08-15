@@ -58,15 +58,27 @@ public class GameManager : MonoBehaviour
     }
     public void CheckGameOver()
     {
-        if (P1 == null && P2 == null)
+        if (P2 != null)
         {
-            // Game Over
-            // display game over UI screen.
-            // This is awesome!
-            // Do this by setting game over screen 
-            // (canvas gameObject).setActive(true) << General code to use
-            // Them run a coroutine to delay the return to main menu
-            StartCoroutine(Delay());
+            if (P1 == null && P2.GetComponent<TankData>().isDead == true)
+            {
+                Debug.Log("You lost");
+                // Game Over
+                // display game over UI screen.
+                // This is awesome!
+                // Do this by setting game over screen 
+                // (canvas gameObject).setActive(true) << General code to use
+                // Them run a coroutine to delay the return to main menu
+                StartCoroutine(Delay());
+            } 
+        }
+        if (P1 != null)
+        {
+            if (P2 == null && P1.GetComponent<TankData>().isDead == true)
+            {
+                Debug.Log("You lost");
+                StartCoroutine(Delay());
+            } 
         }
     }
 
