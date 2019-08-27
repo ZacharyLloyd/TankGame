@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     //Score to be added
     public int score;
     //Highscore
-    private int highscore;
+    public int highscore;
     // Delay before game over returns to main menu
     public float gameOverDelay;
 
