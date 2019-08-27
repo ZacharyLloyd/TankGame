@@ -14,9 +14,5 @@ public class Score : MonoBehaviour
         {
             playerScore.text = GameManager.instance.P1score.ToString(); 
         }
-        if (GameManager.instance.P2 != null)
-        {
-            playerScore.text = GameManager.instance.P2score.ToString();
-        }
     }
 }
