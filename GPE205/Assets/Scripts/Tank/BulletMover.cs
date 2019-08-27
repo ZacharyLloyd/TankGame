@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BulletMover : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class BulletMover : MonoBehaviour
     public float destroyDuration;
     public float bulletSpeed;
     public GameObject owner;
-    //Find objects and instaniate the bullet
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +51,7 @@ public class BulletMover : MonoBehaviour
             AudioManager.mastersounds.Play("Explosion");
             if(collide.GetComponent<TankData>().health <= 0)
             {
+                    //Add score to player one
                     if (GameManager.instance.P1 != null)
                     {
                         if (GameManager.instance.P1.GetComponent<Collider>() == owner.GetComponent<Collider>())
@@ -58,8 +59,9 @@ public class BulletMover : MonoBehaviour
                             GameManager.instance.P1score += GameManager.instance.score;
                         } 
                     }
+                    //Add score to player two
                     if (GameManager.instance.P2 != null)
-                    {   
+                    {
                         if (GameManager.instance.P2.GetComponent<Collider>() == owner.GetComponent<Collider>())
                         {
                             GameManager.instance.P2score += GameManager.instance.score;
